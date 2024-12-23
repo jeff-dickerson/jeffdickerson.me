@@ -1,0 +1,28 @@
+import { motion } from "framer-motion";
+
+export const Hero = () => {
+  return (
+    <section className="min-h-screen flex items-center justify-center pt-20">
+      <div className="container mx-auto px-6 py-12">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+            <span className="block animate-fade-up" style={{ animationDelay: "0.2s" }}>
+              Writing code,
+            </span>
+            <span className="block animate-fade-up" style={{ animationDelay: "0.4s" }}>
+              thinking product.
+            </span>
+          </h1>
+          <p className="text-xl text-gray-600 animate-fade-up" style={{ animationDelay: "0.6s" }}>
+            Turn your product's pain into production-ready features that unlock opportunities. For startups and scale-ups.
+          </p>
+          <div className="animate-fade-up" style={{ animationDelay: "0.8s" }}>
+            <button className="px-8 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
+              Book Free Call
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};

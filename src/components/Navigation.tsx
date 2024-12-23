@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,11 +9,12 @@ export const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="/" className="text-xl font-bold">
+          <Link to="/" className="text-xl font-bold">
             YourName
-          </a>
+          </Link>
           
           <div className="hidden md:flex items-center space-x-8">
+            <Link to="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link>
             <a href="#services" className="hover:text-primary transition-colors">Services</a>
             <a href="#about" className="hover:text-primary transition-colors">About</a>
             <a href="#testimonials" className="hover:text-primary transition-colors">Testimonials</a>
@@ -32,6 +34,7 @@ export const Navigation = () => {
         {isOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t">
             <div className="flex flex-col space-y-4 p-6">
+              <Link to="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link>
               <a href="#services" className="hover:text-primary transition-colors">Services</a>
               <a href="#about" className="hover:text-primary transition-colors">About</a>
               <a href="#testimonials" className="hover:text-primary transition-colors">Testimonials</a>

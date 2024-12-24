@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
 
 interface CaseStudyCardProps {
   title: string;
@@ -9,16 +10,33 @@ interface CaseStudyCardProps {
 }
 
 export const CaseStudyCard = ({ title, description, date, tags, image }: CaseStudyCardProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
-    <div className="group bg-gray-50 rounded-2xl p-8 hover:bg-gray-100 transition-colors duration-300 animate-fade-up">
-      <div className="grid md:grid-cols-2 gap-8">
+    <div 
+      onClick={() => setIsExpanded(!isExpanded)}
+      className={`
+        group bg-gray-50 rounded-2xl p-8 hover:bg-gray-100 
+        transition-all duration-300 animate-fade-up cursor-pointer
+        ${isExpanded ? 'w-full' : 'w-[48%] mx-auto'}
+      `}
+    >
+      <div className={`
+        grid gap-8
+        ${isExpanded ? 'md:grid-cols-2' : 'grid-cols-1'}
+      `}>
         <div className="space-y-4">
           <span className="text-sm text-gray-500">{date}</span>
           <h3 className="text-2xl font-bold group-hover:text-primary transition-colors duration-300 flex items-center gap-2">
             {title}
             <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </h3>
-          <p className="text-gray-600">{description}</p>
+          <p className={`
+            text-gray-600 transition-all duration-300
+            ${isExpanded ? 'block' : 'line-clamp-2'}
+          `}>
+            {description}
+          </p>
           <div className="flex flex-wrap gap-2">
             {tags.map((tag) => (
               <span
@@ -30,7 +48,10 @@ export const CaseStudyCard = ({ title, description, date, tags, image }: CaseStu
             ))}
           </div>
         </div>
-        <div className="relative h-[200px] md:h-auto">
+        <div className={`
+          relative transition-all duration-300
+          ${isExpanded ? 'h-[300px]' : 'h-[150px]'}
+        `}>
           <img
             src={image}
             alt={title}

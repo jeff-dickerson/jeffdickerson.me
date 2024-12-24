@@ -32,14 +32,14 @@ const CaseStudies = () => {
     <div className="min-h-screen bg-white">
       <Navigation />
       <main className="container mx-auto px-6 pt-32 pb-20">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h1 className="text-5xl font-bold mb-4 animate-fade-up">Case Studies</h1>
           <p className="text-lg text-gray-600 mb-16 animate-fade-up">
             A small collection of freelance and open-source projects I worked on.
             Learn more about how my favorite projects look like.
           </p>
 
-          <div className="space-y-8">
+          <div className="flex flex-wrap gap-8">
             {caseStudies.map((study) => (
               <CaseStudyCard key={study.title} {...study} />
             ))}

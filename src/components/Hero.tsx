@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Check } from "lucide-react";
 
 export const Hero = () => {
   return (
@@ -16,10 +17,20 @@ export const Hero = () => {
           <p className="text-xl text-gray-600 animate-fade-up" style={{ animationDelay: "0.6s" }}>
             Turn your product's pain into production-ready features that unlock opportunities. For startups and scale-ups.
           </p>
-          <div className="animate-fade-up" style={{ animationDelay: "0.8s" }}>
+          <div className="space-y-4 animate-fade-up" style={{ animationDelay: "0.8s" }}>
             <button className="px-8 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
               Book Free Call
             </button>
+            <div className="flex justify-center space-x-8 mt-6">
+              <div className="flex items-center space-x-2">
+                <Check className="text-primary" />
+                <span>20min call</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Check className="text-primary" />
+                <span>Get product feedback</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

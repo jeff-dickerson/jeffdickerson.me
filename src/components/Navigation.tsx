@@ -15,9 +15,7 @@ export const Navigation = () => {
           
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link>
-            <a href="#services" className="hover:text-primary transition-colors">Services</a>
-            <a href="#about" className="hover:text-primary transition-colors">About</a>
-            <a href="#testimonials" className="hover:text-primary transition-colors">Testimonials</a>
+            <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
             <button className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
               Book a Call
             </button>
@@ -35,9 +33,7 @@ export const Navigation = () => {
           <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t">
             <div className="flex flex-col space-y-4 p-6">
               <Link to="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link>
-              <a href="#services" className="hover:text-primary transition-colors">Services</a>
-              <a href="#about" className="hover:text-primary transition-colors">About</a>
-              <a href="#testimonials" className="hover:text-primary transition-colors">Testimonials</a>
+              <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
               <button className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
                 Book a Call
               </button>

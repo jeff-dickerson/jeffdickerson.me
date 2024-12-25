@@ -7,10 +7,11 @@ import { About } from "@/components/About";
 import { Testimonials } from "@/components/Testimonials";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       <Navigation />
       <Hero />
       <Features />
@@ -20,6 +21,7 @@ const Index = () => {
       <Testimonials />
       <CTA />
       <Footer />
+      <ThemeToggle />
     </div>
   );
 };

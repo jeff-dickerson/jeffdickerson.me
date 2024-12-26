@@ -6,7 +6,7 @@ export const CombiningSection = () => {
           Combining product and development.
         </h2>
         <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: "0.2s" }}>
-          I support you right where your challenges are — or might be in the future. Seamlessly switching between discovery and delivery.
+          I support you right where your challenges are — or might be<br />in the future. Seamlessly switching between discovery<br />and delivery.
         </p>
         
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -15,11 +15,11 @@ export const CombiningSection = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <span className="text-primary">✓</span>
-                I listen to user feedback, develop solutions, and manage the roadmap.
+                I listen to user feedback,<br />develop solutions, and<br />manage the roadmap.
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-primary">✓</span>
-                With your input, I can quickly evaluate on ideas we developed.
+                With your input, I can quickly<br />evaluate on ideas we developed.
               </li>
             </ul>
             <button className="mt-8 px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
@@ -32,11 +32,11 @@ export const CombiningSection = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <span className="text-primary">✓</span>
-                I design and implement features based on your existing designs.
+                I design and implement features<br />based on your existing designs.
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-primary">✓</span>
-                Using modern tech stack to speed up process, there are existing puzzles to deal with.
+                Using modern tech stack to speed up<br />process, there are existing puzzles<br />to deal with.
               </li>
             </ul>
             <button className="mt-8 px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">

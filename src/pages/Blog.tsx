@@ -117,7 +117,10 @@ const Blog = () => {
           {/* Blog posts grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPosts.map(post => (
-              <Card key={post.id} className="hover:shadow-lg transition-shadow">
+              <Card 
+                key={post.id} 
+                className="transform transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+              >
                 <CardHeader>
                   <img
                     src={post.image}

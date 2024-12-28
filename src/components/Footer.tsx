@@ -12,9 +12,10 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Navigation</h4>
             <ul className="space-y-2">
-              <li><a href="#services" className="text-gray-600 hover:text-primary transition-colors">Services</a></li>
+              <li><a href="/" className="text-gray-600 hover:text-primary transition-colors">Home</a></li>
               <li><a href="#about" className="text-gray-600 hover:text-primary transition-colors">About</a></li>
-              <li><a href="#testimonials" className="text-gray-600 hover:text-primary transition-colors">Testimonials</a></li>
+              <li><a href="/case-studies" className="text-gray-600 hover:text-primary transition-colors">Case Studies</a></li>
+              <li><a href="/content" className="text-gray-600 hover:text-primary transition-colors">Content</a></li>
             </ul>
           </div>
           <div>

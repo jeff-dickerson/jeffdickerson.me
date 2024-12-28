@@ -1,17 +1,143 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
-const Content = () => {
+type BlogPost = {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  image: string;
+  tags: string[];
+};
+
+const blogPosts: BlogPost[] = [
+  {
+    id: 1,
+    title: "Building Interactive UIs with React",
+    description: "Learn how to create engaging user interfaces using React and modern web technologies.",
+    date: "March 15, 2024",
+    image: "/placeholder.svg",
+    tags: ["React", "Frontend", "UI/UX"]
+  },
+  {
+    id: 2,
+    title: "The Future of Web Development",
+    description: "Exploring upcoming trends and technologies shaping the future of web development.",
+    date: "March 12, 2024",
+    image: "/placeholder.svg",
+    tags: ["Web Development", "Trends", "Technology"]
+  },
+  {
+    id: 3,
+    title: "Mastering TypeScript",
+    description: "A comprehensive guide to using TypeScript in your projects.",
+    date: "March 10, 2024",
+    image: "/placeholder.svg",
+    tags: ["TypeScript", "JavaScript", "Programming"]
+  },
+  {
+    id: 4,
+    title: "State Management in Modern Apps",
+    description: "Compare different state management solutions and learn when to use each.",
+    date: "March 8, 2024",
+    image: "/placeholder.svg",
+    tags: ["State Management", "React", "Architecture"]
+  },
+  {
+    id: 5,
+    title: "Optimizing React Performance",
+    description: "Learn techniques to improve your React application's performance.",
+    date: "March 5, 2024",
+    image: "/placeholder.svg",
+    tags: ["React", "Performance", "Optimization"]
+  },
+  {
+    id: 6,
+    title: "Building Accessible Web Apps",
+    description: "Best practices for creating inclusive and accessible web applications.",
+    date: "March 3, 2024",
+    image: "/placeholder.svg",
+    tags: ["Accessibility", "Web Development", "UI/UX"]
+  }
+];
+
+const Blog = () => {
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  
+  // Get unique tags from all blog posts
+  const allTags = Array.from(
+    new Set(blogPosts.flatMap(post => post.tags))
+  ).sort();
+
+  // Filter posts based on selected tags
+  const filteredPosts = selectedTags.length > 0
+    ? blogPosts.filter(post =>
+        selectedTags.some(tag => post.tags.includes(tag))
+      )
+    : blogPosts;
+
+  const toggleTag = (tag: string) => {
+    setSelectedTags(prev =>
+      prev.includes(tag)
+        ? prev.filter(t => t !== tag)
+        : [...prev, tag]
+    );
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
       <main className="container mx-auto px-6 pt-32 pb-20">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-5xl font-bold mb-4 animate-fade-up">Content</h1>
-          <p className="text-lg text-gray-600 mb-16 animate-fade-up">
+          <h1 className="text-5xl font-bold mb-4 animate-fade-up">Blog</h1>
+          <p className="text-lg text-gray-600 mb-8 animate-fade-up">
             Learn with me. I regularly share my learnings on how to build interactive features with a product-first mindset.
           </p>
-          {/* Content will be added here */}
+
+          {/* Tags filter */}
+          <div className="mb-8">
+            <h2 className="text-lg font-semibold mb-3">Filter by tags:</h2>
+            <div className="flex flex-wrap gap-2">
+              {allTags.map(tag => (
+                <Badge
+                  key={tag}
+                  variant={selectedTags.includes(tag) ? "default" : "outline"}
+                  className="cursor-pointer"
+                  onClick={() => toggleTag(tag)}
+                >
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+          </div>
+
+          {/* Blog posts grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredPosts.map(post => (
+              <Card key={post.id} className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <img
+                    src={post.image}
+                    alt=""
+                    className="w-full h-48 object-cover rounded-t-lg mb-4"
+                  />
+                  <CardTitle>{post.title}</CardTitle>
+                  <CardDescription>{post.date}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-4">{post.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.map(tag => (
+                      <Badge key={tag} variant="secondary">{tag}</Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </main>
       <Footer />
@@ -19,4 +145,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default Blog;

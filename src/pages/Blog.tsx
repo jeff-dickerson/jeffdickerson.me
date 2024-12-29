@@ -10,7 +10,7 @@ type BlogPost = {
   description: string;
   date: string;
   image: string;
-  tags: string[];
+  tag: string;
 };
 
 const blogPosts: BlogPost[] = [
@@ -20,72 +20,67 @@ const blogPosts: BlogPost[] = [
     description: "Learn how to create engaging user interfaces using React and modern web technologies.",
     date: "March 15, 2024",
     image: "/placeholder.svg",
-    tags: ["React", "Frontend", "UI/UX"]
+    tag: "Engineering"
   },
   {
     id: 2,
-    title: "The Future of Web Development",
-    description: "Exploring upcoming trends and technologies shaping the future of web development.",
+    title: "The Future of Remote Work",
+    description: "Exploring upcoming trends and technologies shaping how we work remotely.",
     date: "March 12, 2024",
     image: "/placeholder.svg",
-    tags: ["Web Development", "Trends", "Technology"]
+    tag: "Future of Work"
   },
   {
     id: 3,
-    title: "Mastering TypeScript",
-    description: "A comprehensive guide to using TypeScript in your projects.",
+    title: "Understanding System Design",
+    description: "A comprehensive guide to designing scalable systems.",
     date: "March 10, 2024",
     image: "/placeholder.svg",
-    tags: ["TypeScript", "JavaScript", "Programming"]
+    tag: "Systems"
   },
   {
     id: 4,
-    title: "State Management in Modern Apps",
-    description: "Compare different state management solutions and learn when to use each.",
+    title: "Introduction to Large Language Models",
+    description: "Understanding the fundamentals of LLMs and their applications.",
     date: "March 8, 2024",
     image: "/placeholder.svg",
-    tags: ["State Management", "React", "Architecture"]
+    tag: "Machine Learning"
   },
   {
     id: 5,
-    title: "Optimizing React Performance",
-    description: "Learn techniques to improve your React application's performance.",
+    title: "The Rise of AI Agents",
+    description: "Exploring how AI agents are transforming various industries.",
     date: "March 5, 2024",
     image: "/placeholder.svg",
-    tags: ["React", "Performance", "Optimization"]
+    tag: "Generative AI"
   },
   {
     id: 6,
-    title: "Building Accessible Web Apps",
-    description: "Best practices for creating inclusive and accessible web applications.",
+    title: "Web3 and the Future of Finance",
+    description: "Understanding blockchain technology and its impact on financial systems.",
     date: "March 3, 2024",
     image: "/placeholder.svg",
-    tags: ["Accessibility", "Web Development", "UI/UX"]
+    tag: "Crypto/Blockchain"
   }
 ];
 
+const categories = [
+  "All Categories",
+  "Engineering",
+  "Future of Work",
+  "Systems",
+  "Machine Learning",
+  "Generative AI",
+  "Crypto/Blockchain"
+];
+
 const Blog = () => {
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedTag, setSelectedTag] = useState<string>("All Categories");
   
-  // Get unique tags from all blog posts
-  const allTags = Array.from(
-    new Set(blogPosts.flatMap(post => post.tags))
-  ).sort();
-
-  // Filter posts based on selected tags
-  const filteredPosts = selectedTags.length > 0
-    ? blogPosts.filter(post =>
-        selectedTags.some(tag => post.tags.includes(tag))
-      )
-    : blogPosts;
-
-  const toggleTag = (tag: string) => {
-    setSelectedTags(prev =>
-      prev.includes(tag)
-        ? prev.filter(t => t !== tag)
-        : [...prev, tag]
-    );
-  };
+  // Filter posts based on selected tag
+  const filteredPosts = selectedTag === "All Categories"
+    ? blogPosts
+    : blogPosts.filter(post => post.tag === selectedTag);
 
   return (
     <div className="min-h-screen bg-white">
@@ -97,18 +92,18 @@ const Blog = () => {
             Learn with me. I regularly share my learnings on how to build interactive features with a product-first mindset.
           </p>
 
-          {/* Tags filter */}
+          {/* Categories filter */}
           <div className="mb-8">
-            <h2 className="text-lg font-semibold mb-3">Filter by tags:</h2>
+            <h2 className="text-lg font-semibold mb-3">Categories:</h2>
             <div className="flex flex-wrap gap-2">
-              {allTags.map(tag => (
+              {categories.map(category => (
                 <Badge
-                  key={tag}
-                  variant={selectedTags.includes(tag) ? "default" : "outline"}
+                  key={category}
+                  variant={selectedTag === category ? "default" : "outline"}
                   className="cursor-pointer"
-                  onClick={() => toggleTag(tag)}
+                  onClick={() => setSelectedTag(category)}
                 >
-                  {tag}
+                  {category}
                 </Badge>
               ))}
             </div>
@@ -132,11 +127,7 @@ const Blog = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600 mb-4">{post.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {post.tags.map(tag => (
-                      <Badge key={tag} variant="secondary">{tag}</Badge>
-                    ))}
-                  </div>
+                  <Badge variant="secondary">{post.tag}</Badge>
                 </CardContent>
               </Card>
             ))}

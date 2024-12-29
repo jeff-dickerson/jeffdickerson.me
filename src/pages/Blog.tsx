@@ -2,66 +2,8 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-
-type BlogPost = {
-  id: number;
-  title: string;
-  description: string;
-  date: string;
-  image: string;
-  tag: string;
-};
-
-const blogPosts: BlogPost[] = [
-  {
-    id: 1,
-    title: "Building Interactive UIs with React",
-    description: "Learn how to create engaging user interfaces using React and modern web technologies.",
-    date: "March 15, 2024",
-    image: "/placeholder.svg",
-    tag: "Engineering"
-  },
-  {
-    id: 2,
-    title: "The Future of Remote Work",
-    description: "Exploring upcoming trends and technologies shaping how we work remotely.",
-    date: "March 12, 2024",
-    image: "/placeholder.svg",
-    tag: "Future of Work"
-  },
-  {
-    id: 3,
-    title: "Understanding System Design",
-    description: "A comprehensive guide to designing scalable systems.",
-    date: "March 10, 2024",
-    image: "/placeholder.svg",
-    tag: "Systems"
-  },
-  {
-    id: 4,
-    title: "Introduction to Large Language Models",
-    description: "Understanding the fundamentals of LLMs and their applications.",
-    date: "March 8, 2024",
-    image: "/placeholder.svg",
-    tag: "Machine Learning"
-  },
-  {
-    id: 5,
-    title: "The Rise of AI Agents",
-    description: "Exploring how AI agents are transforming various industries.",
-    date: "March 5, 2024",
-    image: "/placeholder.svg",
-    tag: "Generative AI"
-  },
-  {
-    id: 6,
-    title: "Web3 and the Future of Finance",
-    description: "Understanding blockchain technology and its impact on financial systems.",
-    date: "March 3, 2024",
-    image: "/placeholder.svg",
-    tag: "Crypto/Blockchain"
-  }
-];
+import { useNavigate } from "react-router-dom";
+import { blogPosts } from "@/data/blogPosts";
 
 const categories = [
   "All Categories",
@@ -75,6 +17,7 @@ const categories = [
 
 const Blog = () => {
   const [selectedTag, setSelectedTag] = useState<string>("All Categories");
+  const navigate = useNavigate();
   
   const filteredPosts = selectedTag === "All Categories"
     ? blogPosts
@@ -89,7 +32,6 @@ const Blog = () => {
             Capturing my Learning <br /> with Blog
           </h1>
 
-          {/* Categories filter */}
           <div className="mb-12">
             <h2 className="text-lg font-semibold mb-3">Categories:</h2>
             <div className="flex flex-wrap gap-2">
@@ -106,12 +48,12 @@ const Blog = () => {
             </div>
           </div>
 
-          {/* Blog posts grid */}
           <div className="space-y-6">
             {filteredPosts.map(post => (
               <div 
                 key={post.id}
-                className="group bg-white border rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg h-[280px] w-[704px]"
+                onClick={() => navigate(`/blog/${post.id}`)}
+                className="group bg-white border rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg h-[280px] w-[704px] cursor-pointer"
               >
                 <div className="p-6 h-full">
                   <div className="flex gap-6 h-full">

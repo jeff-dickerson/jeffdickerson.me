@@ -111,19 +111,19 @@ const Blog = () => {
             {filteredPosts.map(post => (
               <div 
                 key={post.id}
-                className="group bg-white border rounded-lg overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg h-[230.22px] w-[704px]"
+                className="group bg-white border rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg h-[280px] w-[704px]"
               >
-                <div className="p-6">
-                  <div className="flex gap-6">
-                    <div className="flex-1 space-y-3">
+                <div className="p-8 h-full">
+                  <div className="flex gap-8 h-full">
+                    <div className="flex-1 space-y-4">
                       <span className="text-sm text-gray-500">{post.date}</span>
-                      <h3 className="text-2xl font-bold group-hover:text-primary transition-colors duration-300">
+                      <h3 className="text-3xl font-bold group-hover:text-primary transition-colors duration-300">
                         {post.title}
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-gray-600 text-lg">
                         {post.description}
                       </p>
-                      <Badge variant="secondary">
+                      <Badge variant="secondary" className="text-sm px-4 py-1">
                         {post.tag}
                       </Badge>
                     </div>
@@ -131,7 +131,7 @@ const Blog = () => {
                       <img
                         src={post.image}
                         alt=""
-                        className="w-[343.33px] h-[228.89px] object-cover rounded-lg"
+                        className="w-[343.33px] h-[228.89px] object-cover rounded-2xl"
                       />
                     </div>
                   </div>

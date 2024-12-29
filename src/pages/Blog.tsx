@@ -84,7 +84,7 @@ const Blog = () => {
     <div className="min-h-screen bg-white">
       <Navigation />
       <main className="container mx-auto px-6 pt-32 pb-20">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[704px] mx-auto">
           <h1 className="text-5xl font-bold mb-12 animate-fade-up">
             Capturing my Learning <br /> with Blog
           </h1>
@@ -111,11 +111,11 @@ const Blog = () => {
             {filteredPosts.map(post => (
               <div 
                 key={post.id}
-                className="group bg-white border rounded-lg overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg"
+                className="group bg-white border rounded-lg overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg h-[230.22px] w-[704px]"
               >
-                <div className="p-8">
-                  <div className="flex flex-col md:flex-row gap-8">
-                    <div className="flex-1 space-y-4">
+                <div className="p-6">
+                  <div className="flex gap-6">
+                    <div className="flex-1 space-y-3">
                       <span className="text-sm text-gray-500">{post.date}</span>
                       <h3 className="text-2xl font-bold group-hover:text-primary transition-colors duration-300">
                         {post.title}
@@ -127,11 +127,11 @@ const Blog = () => {
                         {post.tag}
                       </Badge>
                     </div>
-                    <div className="w-full md:w-1/3">
+                    <div className="w-[343.33px]">
                       <img
                         src={post.image}
                         alt=""
-                        className="w-full h-48 object-cover rounded-lg"
+                        className="w-[343.33px] h-[228.89px] object-cover rounded-lg"
                       />
                     </div>
                   </div>

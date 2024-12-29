@@ -1,7 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 type BlogPost = {
@@ -77,7 +76,6 @@ const categories = [
 const Blog = () => {
   const [selectedTag, setSelectedTag] = useState<string>("All Categories");
   
-  // Filter posts based on selected tag
   const filteredPosts = selectedTag === "All Categories"
     ? blogPosts
     : blogPosts.filter(post => post.tag === selectedTag);
@@ -87,13 +85,12 @@ const Blog = () => {
       <Navigation />
       <main className="container mx-auto px-6 pt-32 pb-20">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-5xl font-bold mb-4 animate-fade-up">Blog</h1>
-          <p className="text-lg text-gray-600 mb-8 animate-fade-up">
-            Learn with me. I regularly share my learnings on how to build interactive features with a product-first mindset.
-          </p>
+          <h1 className="text-5xl font-bold mb-12 animate-fade-up">
+            Capturing my Learning <br /> with Blog
+          </h1>
 
           {/* Categories filter */}
-          <div className="mb-8">
+          <div className="mb-12">
             <h2 className="text-lg font-semibold mb-3">Categories:</h2>
             <div className="flex flex-wrap gap-2">
               {categories.map(category => (
@@ -110,26 +107,36 @@ const Blog = () => {
           </div>
 
           {/* Blog posts grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="space-y-6">
             {filteredPosts.map(post => (
-              <Card 
-                key={post.id} 
-                className="transform transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+              <div 
+                key={post.id}
+                className="group bg-white border rounded-lg overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg"
               >
-                <CardHeader>
-                  <img
-                    src={post.image}
-                    alt=""
-                    className="w-full h-48 object-cover rounded-t-lg mb-4"
-                  />
-                  <CardTitle>{post.title}</CardTitle>
-                  <CardDescription>{post.date}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4">{post.description}</p>
-                  <Badge variant="secondary">{post.tag}</Badge>
-                </CardContent>
-              </Card>
+                <div className="p-8">
+                  <div className="flex flex-col md:flex-row gap-8">
+                    <div className="flex-1 space-y-4">
+                      <span className="text-sm text-gray-500">{post.date}</span>
+                      <h3 className="text-2xl font-bold group-hover:text-primary transition-colors duration-300">
+                        {post.title}
+                      </h3>
+                      <p className="text-gray-600">
+                        {post.description}
+                      </p>
+                      <Badge variant="secondary">
+                        {post.tag}
+                      </Badge>
+                    </div>
+                    <div className="w-full md:w-1/3">
+                      <img
+                        src={post.image}
+                        alt=""
+                        className="w-full h-48 object-cover rounded-lg"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>

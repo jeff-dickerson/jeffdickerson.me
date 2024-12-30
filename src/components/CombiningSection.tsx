@@ -10,7 +10,7 @@ export const CombiningSection = () => {
         </p>
         
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div className="bg-white p-8 rounded-xl shadow-sm animate-fade-up border-2 border-[#0EA5E9] dark:border-[#D3E4FD]" style={{ animationDelay: "0.3s" }}>
+          <div className="w-96 h-96 p-8 bg-white rounded-xl shadow-sm animate-fade-up border-2 border-[#0EA5E9] dark:border-[#D3E4FD]" style={{ animationDelay: "0.3s" }}>
             <h3 className="text-2xl font-bold mb-6">You primarily need a<br /><span className="text-primary">Product Manager</span></h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
@@ -27,7 +27,7 @@ export const CombiningSection = () => {
             </button>
           </div>
           
-          <div className="bg-white p-8 rounded-xl shadow-sm animate-fade-up border-2 border-[#33C3F0] dark:border-[#D3E4FD]" style={{ animationDelay: "0.4s" }}>
+          <div className="w-96 h-96 p-8 bg-white rounded-xl shadow-sm animate-fade-up border-2 border-[#33C3F0] dark:border-[#D3E4FD]" style={{ animationDelay: "0.4s" }}>
             <h3 className="text-2xl font-bold mb-6">You primarily need a<br /><span className="text-primary">Web Developer</span></h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">

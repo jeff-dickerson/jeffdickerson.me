@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { Separator } from "@/components/ui/separator";
 
 const About = () => {
   return (
@@ -10,6 +11,25 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-heading mb-8">About</h1>
           
+          {/* Image Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="aspect-video">
+              <img
+                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800"
+                alt="Working on laptop"
+                className="rounded-lg shadow-lg object-cover w-full h-full"
+              />
+            </div>
+            <div className="aspect-video">
+              <img
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800"
+                alt="Technology workspace"
+                className="rounded-lg shadow-lg object-cover w-full h-full"
+              />
+            </div>
+          </div>
+
+          {/* Bio Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
             <div>
               <h2 className="text-2xl font-bold mb-4">Hi, I'm Jeff!</h2>
@@ -27,6 +47,20 @@ const About = () => {
               </p>
               <p className="text-gray-600">
                 Every two weeks, I publish G-Factor, where I dive into ideas about intelligence—how we think, how machines think, and how the two intersect. I believe technology should work for us—not the other way around. And I'm here to help make that happen.
+              </p>
+            </div>
+          </div>
+
+          {/* Separator */}
+          <Separator className="my-12" />
+
+          {/* Business Description Section */}
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold mb-6">My Businesses</h2>
+            <div className="space-y-8">
+              {/* Placeholder for business descriptions */}
+              <p className="text-gray-600">
+                Business descriptions will be added here.
               </p>
             </div>
           </div>

@@ -4,12 +4,18 @@ export const About = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-up">
-            <h2 className="text-3xl font-bold mb-6">Hey, I am YourName</h2>
-            <p className="text-xl text-gray-600 mb-6">
-              A freelance product engineer — or to put it simply: a product manager who codes.
+            <h2 className="text-3xl font-bold mb-6">Hi, I'm Jeff!</h2>
+            <p className="text-gray-600 mb-6">
+              I'm an AI architect, which is just a fancy way of saying I build smart tools and systems that solve real-world problems using artificial intelligence. I'm the founder of Kontrak IQ, an enterprise contract data management platform powered by a vertical AI Agent. My expertise sits at the intersection of systems and software development.
             </p>
             <p className="text-gray-600 mb-6">
-              My passion has always been at the intersection of product and tech development. I love talking to users and developing ideas as much as coding with a space to explore coming to the best solution.
+              I focus on making AI less intimidating and more meaningful. Whether it's designing products, creating strategies, or just sharing insights, my goal is to bridge the gap between humans and advanced tech in a way that feels purposeful.
+            </p>
+            <p className="text-gray-600 mb-6">
+              I also love experimenting with and contributing to blockchain and crypto projects, having led a native build and published empirical research on several ecosystems. I'm passionate about how technology shapes our lives and use my expertise to help organizations of all sizes harness AI to make smarter decisions, streamline workflows, and discover untapped opportunities.
+            </p>
+            <p className="text-gray-600 mb-6">
+              Every two weeks, I publish G-Factor, where I dive into ideas about intelligence—how we think, how machines think, and how the two intersect. I believe technology should work for us—not the other way around. And I'm here to help make that happen.
             </p>
             <button className="px-8 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
               Learn More

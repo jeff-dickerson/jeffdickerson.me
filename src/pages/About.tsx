@@ -10,19 +10,23 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-heading mb-8">About</h1>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <img
-              src="/lovable-uploads/be3876d3-c20b-4d60-a7dc-69c53cb1f62a.png"
-              alt="About section inspiration"
-              className="rounded-lg shadow-lg"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
             <div>
-              <h2 className="text-2xl font-bold mb-4">How do you think about technology futures?</h2>
+              <h2 className="text-2xl font-bold mb-4">Hi, I'm Jeff!</h2>
               <p className="text-gray-600 mb-6">
-                I work with organizations across sectors and industries to help them get better at research, strategy and consulting for clients, including healthy, data-aware helping people understand their questions to ask.
+                I'm an AI architect, which is just a fancy way of saying I build smart tools and systems that solve real-world problems using artificial intelligence. I'm the founder of Kontrak IQ, an enterprise contract data management platform powered by a vertical AI Agent. My expertise sits at the intersection of systems and software development.
+              </p>
+              <p className="text-gray-600 mb-6">
+                I focus on making AI less intimidating and more meaningful. Whether it's designing products, creating strategies, or just sharing insights, my goal is to bridge the gap between humans and advanced tech in a way that feels purposeful.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold mb-4">What I Do</h2>
+              <p className="text-gray-600 mb-6">
+                I love experimenting with and contributing to blockchain and crypto projects, having led a native build and published empirical research on several ecosystems. I'm passionate about how technology shapes our lives and use my expertise to help organizations of all sizes harness AI to make smarter decisions, streamline workflows, and discover untapped opportunities.
               </p>
               <p className="text-gray-600">
-                I write and speak about what I'm seeing. I'm trying to understand, publish a weekly newsletter and give presentations putting together these ideas.
+                Every two weeks, I publish G-Factor, where I dive into ideas about intelligence—how we think, how machines think, and how the two intersect. I believe technology should work for us—not the other way around. And I'm here to help make that happen.
               </p>
             </div>
           </div>

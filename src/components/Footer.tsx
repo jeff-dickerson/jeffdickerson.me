@@ -4,16 +4,16 @@ export const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold mb-4">YourName</h3>
+            <h3 className="font-bold mb-4">Jeff</h3>
             <p className="text-sm text-gray-600">
-              Product Engineer
+              AI Architect
             </p>
           </div>
           <div>
             <h4 className="font-semibold mb-4">Navigation</h4>
             <ul className="space-y-2">
               <li><a href="/" className="text-gray-600 hover:text-primary transition-colors">Home</a></li>
-              <li><a href="#about" className="text-gray-600 hover:text-primary transition-colors">About</a></li>
+              <li><a href="/about" className="text-gray-600 hover:text-primary transition-colors">About</a></li>
               <li><a href="/case-studies" className="text-gray-600 hover:text-primary transition-colors">Case Studies</a></li>
               <li><a href="/blog" className="text-gray-600 hover:text-primary transition-colors">Blog</a></li>
             </ul>
@@ -35,7 +35,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="mt-12 pt-8 border-t text-center text-gray-600">
-          <p>&copy; {new Date().getFullYear()} YourName. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Jeff. All rights reserved.</p>
         </div>
       </div>
     </footer>

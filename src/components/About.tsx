@@ -8,12 +8,19 @@ export const About = () => {
             <p className="text-gray-600 mb-6">
               I'm an AI architect, which is just a fancy way of saying I build smart tools and systems that solve real-world problems using artificial intelligence. I'm the founder of Kontrak IQ, an enterprise contract data management platform powered by a vertical AI Agent. My expertise sits at the intersection of systems and software development.
             </p>
-            <p className="text-gray-600 mb-6">
-              I focus on making AI less intimidating and more meaningful. Whether it's designing products, creating strategies, or just sharing insights, my goal is to bridge the gap between humans and advanced tech in a way that feels purposeful.
-            </p>
-            <p className="text-gray-600 mb-6">
-              I also love experimenting with and contributing to blockchain and crypto projects, having led a native build and published empirical research on several ecosystems. I'm passionate about how technology shapes our lives and use my expertise to help organizations of all sizes harness AI to make smarter decisions, streamline workflows, and discover untapped opportunities.
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <p className="text-gray-600 mb-6">
+                  I focus on making AI less intimidating and more meaningful. Whether it's designing products, creating strategies, or just sharing insights, my goal is to bridge the gap between humans and advanced tech in a way that feels purposeful.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-4">What I Do</h3>
+                <p className="text-gray-600 mb-6">
+                  I love experimenting with and contributing to blockchain and crypto projects, having led a native build and published empirical research on several ecosystems. I'm passionate about how technology shapes our lives and use my expertise to help organizations of all sizes harness AI to make smarter decisions, streamline workflows, and discover untapped opportunities.
+                </p>
+              </div>
+            </div>
             <p className="text-gray-600 mb-6">
               Every two weeks, I publish G-Factor, where I dive into ideas about intelligence—how we think, how machines think, and how the two intersect. I believe technology should work for us—not the other way around. And I'm here to help make that happen.
             </p>

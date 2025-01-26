@@ -1,3 +1,5 @@
+import { BackgroundGradient } from "aceternity-ui/background-gradient";
+
 export const CombiningSection = () => {
   return (
     <section className="py-20">
@@ -10,39 +12,43 @@ export const CombiningSection = () => {
         </p>
         
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div className="w-[384px] h-[384px] p-[40px_32px] bg-white rounded-xl shadow-sm animate-fade-up border-2 border-[#0EA5E9] dark:border-[#D3E4FD]" style={{ animationDelay: "0.3s" }}>
-            <h3 className="text-2xl font-bold mb-6">You primarily need a<br /><span className="text-primary">Product Manager</span></h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <span className="text-primary">✓</span>
-                I listen to user feedback,<br />develop solutions, and<br />manage the roadmap.
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-primary">✓</span>
-                With your input, I can quickly<br />evaluate on ideas we developed.
-              </li>
-            </ul>
-            <button className="mt-8 px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
-              Schedule free call
-            </button>
-          </div>
+          <BackgroundGradient className="rounded-[22px] p-1 bg-white dark:bg-zinc-900">
+            <div className="w-[384px] h-[384px] p-[40px_32px] bg-white dark:bg-zinc-900 rounded-[20px]">
+              <h3 className="text-2xl font-bold mb-6">You primarily need a<br /><span className="text-primary">Product Manager</span></h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="text-primary">✓</span>
+                  I listen to user feedback,<br />develop solutions, and<br />manage the roadmap.
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary">✓</span>
+                  With your input, I can quickly<br />evaluate on ideas we developed.
+                </li>
+              </ul>
+              <button className="mt-8 px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
+                Schedule free call
+              </button>
+            </div>
+          </BackgroundGradient>
           
-          <div className="w-[384px] h-[384px] p-[40px_32px] bg-white rounded-xl shadow-sm animate-fade-up border-2 border-[#33C3F0] dark:border-[#D3E4FD]" style={{ animationDelay: "0.4s" }}>
-            <h3 className="text-2xl font-bold mb-6">You primarily need a<br /><span className="text-primary">Web Developer</span></h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <span className="text-primary">✓</span>
-                I design and implement features<br />based on your existing designs.
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-primary">✓</span>
-                Using modern tech stack to speed up<br />process, there are existing puzzles<br />to deal with.
-              </li>
-            </ul>
-            <button className="mt-8 px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
-              Schedule free call
-            </button>
-          </div>
+          <BackgroundGradient className="rounded-[22px] p-1 bg-white dark:bg-zinc-900">
+            <div className="w-[384px] h-[384px] p-[40px_32px] bg-white dark:bg-zinc-900 rounded-[20px]">
+              <h3 className="text-2xl font-bold mb-6">You primarily need a<br /><span className="text-primary">Web Developer</span></h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="text-primary">✓</span>
+                  I design and implement features<br />based on your existing designs.
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary">✓</span>
+                  Using modern tech stack to speed up<br />process, there are existing puzzles<br />to deal with.
+                </li>
+              </ul>
+              <button className="mt-8 px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
+                Schedule free call
+              </button>
+            </div>
+          </BackgroundGradient>
         </div>
       </div>
     </section>

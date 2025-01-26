@@ -1,4 +1,4 @@
-import { BackgroundGradient } from "aceternity-ui";
+import { BackgroundGradient } from "@/components/ui/background-gradient";
 
 export const CombiningSection = () => {
   return (

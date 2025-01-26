@@ -12,8 +12,8 @@ export const CombiningSection = () => {
         </p>
         
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <BackgroundGradient className="rounded-[22px] p-1 bg-white dark:bg-zinc-900">
-            <div className="w-[384px] h-[384px] p-[40px_32px] bg-white dark:bg-zinc-900 rounded-[20px]">
+          <BackgroundGradient className="rounded-[22px] bg-white dark:bg-zinc-900">
+            <div className="w-[384px] h-[384px] p-[40px_32px] rounded-[20px]">
               <h3 className="text-2xl font-bold mb-6">You primarily need a<br /><span className="text-primary">Product Manager</span></h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
@@ -31,8 +31,8 @@ export const CombiningSection = () => {
             </div>
           </BackgroundGradient>
           
-          <BackgroundGradient className="rounded-[22px] p-1 bg-white dark:bg-zinc-900">
-            <div className="w-[384px] h-[384px] p-[40px_32px] bg-white dark:bg-zinc-900 rounded-[20px]">
+          <BackgroundGradient className="rounded-[22px] bg-white dark:bg-zinc-900">
+            <div className="w-[384px] h-[384px] p-[40px_32px] rounded-[20px]">
               <h3 className="text-2xl font-bold mb-6">You primarily need a<br /><span className="text-primary">Web Developer</span></h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">

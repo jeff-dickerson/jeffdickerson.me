@@ -42,7 +42,7 @@ export const Features = () => {
           <br />
           pure technical acumen isn't enough.
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 justify-items-center gap-x-10 gap-y-10 sm:grid-cols-2 sm:gap-x-16 sm:gap-y-16 lg:grid-cols-3">
           {features.map((feature, index) => (
             <div
               key={feature.title}

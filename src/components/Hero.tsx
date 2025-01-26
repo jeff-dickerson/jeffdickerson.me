@@ -11,11 +11,12 @@ export const Hero = () => {
               Writing code,
             </span>
             <span className="block animate-fade-up" style={{ animationDelay: "0.4s" }}>
-              thinking product.
+              thinking productivity.
             </span>
           </h1>
           <p className="text-xl text-gray-600 animate-fade-up" style={{ animationDelay: "0.6s" }}>
-            Turn your product's pain into production-ready features that unlock opportunities. For startups and scale-ups.
+            Front load your production tools for success and execution<br />
+            using AI. For engineers, startups and Scale-ups.
           </p>
           <div className="space-y-4 animate-fade-up" style={{ animationDelay: "0.8s" }}>
             <button className="px-8 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">

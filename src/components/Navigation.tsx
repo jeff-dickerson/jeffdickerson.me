@@ -10,7 +10,22 @@ export const Navigation = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="text-xl font-bold">
-            YourName
+            <svg
+              width="120"
+              height="40"
+              viewBox="0 0 120 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="text-black dark:text-white"
+            >
+              <path
+                d="M10 30L20 10L30 30M13 25H27M40 30V10H50C55 10 60 15 60 20C60 25 55 30 50 30H40ZM70 30V10H90M70 20H85"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">

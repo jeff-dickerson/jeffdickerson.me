@@ -1,3 +1,4 @@
+
 import { Code, Users, Zap, Search, Monitor, BarChart } from "lucide-react";
 
 const features = [
@@ -38,9 +39,9 @@ export const Features = () => {
     <section id="services" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold text-center mb-12 animate-fade-up">
-          When companies try to stay lean and fast,
+          When companies implement AI initiatives to stay lean and fast,
           <br />
-          pure technical acumen isn't enough.
+          strategic integration and data quality is key.
         </h2>
         <div className="grid grid-cols-1 justify-items-center gap-x-10 gap-y-10 sm:grid-cols-2 sm:gap-x-16 sm:gap-y-16 lg:grid-cols-3">
           {features.map((feature, index) => (

@@ -28,53 +28,55 @@ export const ImpactSection = () => {
 
   return (
     <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold mb-16 animate-fade-up">Where my work has the most impact.</h2>
+      <div className="container mx-auto px-6 max-w-6xl">
+        <h2 className="text-4xl font-bold mb-16 text-center animate-fade-up">Where my work has the most impact.</h2>
         
-        <div className="grid md:grid-cols-2 gap-12 mb-16">
-          <div className="flex flex-col gap-4 animate-fade-up" style={{ animationDelay: "0.2s" }}>
-            <button 
-              onClick={() => setActiveSection("startups")}
-              className={`text-left text-2xl font-bold transition-all duration-200 ${
-                activeSection === "startups" 
-                  ? "text-primary" 
-                  : "text-gray-400 hover:text-primary/80"
-              }`}
-            >
-              Startups
-            </button>
-            <button 
-              onClick={() => setActiveSection("scaleups")}
-              className={`text-left text-2xl font-bold transition-all duration-200 ${
-                activeSection === "scaleups" 
-                  ? "text-primary" 
-                  : "text-gray-400 hover:text-primary/80"
-              }`}
-            >
-              Scale-ups
-            </button>
-            <button 
-              onClick={() => setActiveSection("engineers")}
-              className={`text-left text-2xl font-bold transition-all duration-200 ${
-                activeSection === "engineers" 
-                  ? "text-primary" 
-                  : "text-gray-400 hover:text-primary/80"
-              }`}
-            >
-              Engineers
-            </button>
-          </div>
-          <div className="animate-fade-up" style={{ animationDelay: "0.3s" }}>
-            <h3 className="text-2xl font-bold mb-4">
-              {sectionContent[activeSection].title}
-            </h3>
-            <p className="text-gray-600">
-              {sectionContent[activeSection].description}
-            </p>
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-12 gap-12 mb-16">
+            <div className="md:col-span-4 flex flex-col gap-6 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+              <button 
+                onClick={() => setActiveSection("startups")}
+                className={`text-left text-2xl font-bold transition-all duration-200 px-4 py-2 ${
+                  activeSection === "startups" 
+                    ? "text-primary" 
+                    : "text-gray-400 hover:text-primary/80"
+                }`}
+              >
+                Startups
+              </button>
+              <button 
+                onClick={() => setActiveSection("scaleups")}
+                className={`text-left text-2xl font-bold transition-all duration-200 px-4 py-2 ${
+                  activeSection === "scaleups" 
+                    ? "text-primary" 
+                    : "text-gray-400 hover:text-primary/80"
+                }`}
+              >
+                Scale-ups
+              </button>
+              <button 
+                onClick={() => setActiveSection("engineers")}
+                className={`text-left text-2xl font-bold transition-all duration-200 px-4 py-2 ${
+                  activeSection === "engineers" 
+                    ? "text-primary" 
+                    : "text-gray-400 hover:text-primary/80"
+                }`}
+              >
+                Engineers
+              </button>
+            </div>
+            <div className="md:col-span-8 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+              <h3 className="text-2xl font-bold mb-4">
+                {sectionContent[activeSection].title}
+              </h3>
+              <p className="text-gray-600">
+                {sectionContent[activeSection].description}
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {steps.map((step, index) => (
             <div 
               key={step.number}

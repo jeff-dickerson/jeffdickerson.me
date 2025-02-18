@@ -29,14 +29,14 @@ export const ImpactSection = () => {
   return (
     <section className="py-12 md:py-20 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-16 text-center animate-fade-up">Where my work has the most impact.</h2>
+        <h2 className="text-3xl md:text-4xl font-heading font-normal mb-8 md:mb-16 text-center animate-fade-up">Where my work has the most impact.</h2>
         
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-12 gap-6 md:gap-12 mb-8 md:mb-16">
             <div className="md:col-span-4 flex flex-col gap-4 md:gap-6 animate-fade-up" style={{ animationDelay: "0.2s" }}>
               <button 
                 onClick={() => setActiveSection("startups")}
-                className={`text-left text-[36px] leading-tight font-bold transition-all duration-200 px-4 py-2 ${
+                className={`text-left text-[36px] leading-tight font-heading font-normal transition-all duration-200 px-4 py-2 ${
                   activeSection === "startups" 
                     ? "text-primary" 
                     : "text-gray-400 hover:text-primary/80"
@@ -46,7 +46,7 @@ export const ImpactSection = () => {
               </button>
               <button 
                 onClick={() => setActiveSection("scaleups")}
-                className={`text-left text-[36px] leading-tight font-bold transition-all duration-200 px-4 py-2 ${
+                className={`text-left text-[36px] leading-tight font-heading font-normal transition-all duration-200 px-4 py-2 ${
                   activeSection === "scaleups" 
                     ? "text-primary" 
                     : "text-gray-400 hover:text-primary/80"
@@ -56,7 +56,7 @@ export const ImpactSection = () => {
               </button>
               <button 
                 onClick={() => setActiveSection("engineers")}
-                className={`text-left text-[36px] leading-tight font-bold transition-all duration-200 px-4 py-2 ${
+                className={`text-left text-[36px] leading-tight font-heading font-normal transition-all duration-200 px-4 py-2 ${
                   activeSection === "engineers" 
                     ? "text-primary" 
                     : "text-gray-400 hover:text-primary/80"

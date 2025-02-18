@@ -1,4 +1,9 @@
+
+import { useState } from "react";
+
 export const ImpactSection = () => {
+  const [activeSection, setActiveSection] = useState("startups");
+
   const steps = [
     { number: "1", title: "Together, we identify major opportunities for your product." },
     { number: "2", title: "We agree upon to turn your product into a new chapter." },
@@ -6,17 +11,65 @@ export const ImpactSection = () => {
     { number: "4", title: "We gather additional user feedback and keep improving." }
   ];
 
+  const sectionContent = {
+    startups: {
+      title: "You see a market opportunity. Now you are in the midst of building the product and staffing a team?",
+      description: "In the early days, shipping fast and collecting feedback is key. I help you in executing your vision — without any managerial hassle."
+    },
+    scaleups: {
+      title: "You already validated your core product. Now it is time to listen for user feedback and scale?",
+      description: "The more mature your product gets, the more important becomes product discovery. I help you in shipping the right features, built with attention to detail."
+    },
+    engineers: {
+      title: "Looking to augment your engineering team with senior expertise?",
+      description: "Whether you need help with architecture decisions or implementing complex features, I bring the technical expertise to help your team succeed."
+    }
+  };
+
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold mb-16 animate-fade-up">Where my work has the most impact.</h2>
         
         <div className="grid md:grid-cols-2 gap-12 mb-16">
-          <div className="animate-fade-up" style={{ animationDelay: "0.2s" }}>
-            <h3 className="text-2xl font-bold mb-4 text-primary">Startups</h3>
-            <h3 className="text-2xl font-bold mb-6">Scale-ups</h3>
+          <div className="flex flex-col gap-4 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+            <button 
+              onClick={() => setActiveSection("startups")}
+              className={`text-left text-2xl font-bold transition-all duration-200 ${
+                activeSection === "startups" 
+                  ? "text-primary" 
+                  : "text-gray-400 hover:text-primary/80"
+              }`}
+            >
+              Startups
+            </button>
+            <button 
+              onClick={() => setActiveSection("scaleups")}
+              className={`text-left text-2xl font-bold transition-all duration-200 ${
+                activeSection === "scaleups" 
+                  ? "text-primary" 
+                  : "text-gray-400 hover:text-primary/80"
+              }`}
+            >
+              Scale-ups
+            </button>
+            <button 
+              onClick={() => setActiveSection("engineers")}
+              className={`text-left text-2xl font-bold transition-all duration-200 ${
+                activeSection === "engineers" 
+                  ? "text-primary" 
+                  : "text-gray-400 hover:text-primary/80"
+              }`}
+            >
+              Engineers
+            </button>
+          </div>
+          <div className="animate-fade-up" style={{ animationDelay: "0.3s" }}>
+            <h3 className="text-2xl font-bold mb-4">
+              {sectionContent[activeSection].title}
+            </h3>
             <p className="text-gray-600">
-              You see a market opportunity. Now you are in the midst of building the product and staffing a team? In the early days, shipping fast and collecting feedback is key. I help you in reaching your vision — which is no surprise!
+              {sectionContent[activeSection].description}
             </p>
           </div>
         </div>

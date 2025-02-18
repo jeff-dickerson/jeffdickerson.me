@@ -27,16 +27,16 @@ export const ImpactSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <h2 className="text-4xl font-bold mb-16 text-center animate-fade-up">Where my work has the most impact.</h2>
+    <section className="py-12 md:py-20 bg-gray-50">
+      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-16 text-center animate-fade-up">Where my work has the most impact.</h2>
         
         <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-12 gap-12 mb-16">
-            <div className="md:col-span-4 flex flex-col gap-6 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <div className="grid md:grid-cols-12 gap-6 md:gap-12 mb-8 md:mb-16">
+            <div className="md:col-span-4 flex flex-col gap-4 md:gap-6 animate-fade-up" style={{ animationDelay: "0.2s" }}>
               <button 
                 onClick={() => setActiveSection("startups")}
-                className={`text-left text-2xl font-bold transition-all duration-200 px-4 py-2 ${
+                className={`text-left text-[36px] leading-tight font-bold transition-all duration-200 px-4 py-2 ${
                   activeSection === "startups" 
                     ? "text-primary" 
                     : "text-gray-400 hover:text-primary/80"
@@ -46,7 +46,7 @@ export const ImpactSection = () => {
               </button>
               <button 
                 onClick={() => setActiveSection("scaleups")}
-                className={`text-left text-2xl font-bold transition-all duration-200 px-4 py-2 ${
+                className={`text-left text-[36px] leading-tight font-bold transition-all duration-200 px-4 py-2 ${
                   activeSection === "scaleups" 
                     ? "text-primary" 
                     : "text-gray-400 hover:text-primary/80"
@@ -56,7 +56,7 @@ export const ImpactSection = () => {
               </button>
               <button 
                 onClick={() => setActiveSection("engineers")}
-                className={`text-left text-2xl font-bold transition-all duration-200 px-4 py-2 ${
+                className={`text-left text-[36px] leading-tight font-bold transition-all duration-200 px-4 py-2 ${
                   activeSection === "engineers" 
                     ? "text-primary" 
                     : "text-gray-400 hover:text-primary/80"
@@ -66,27 +66,27 @@ export const ImpactSection = () => {
               </button>
             </div>
             <div className="md:col-span-8 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-              <h3 className="text-2xl font-bold mb-4">
+              <h3 className="text-xl md:text-2xl font-bold mb-4">
                 {sectionContent[activeSection].title}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-base md:text-lg">
                 {sectionContent[activeSection].description}
               </p>
             </div>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
           {steps.map((step, index) => (
             <div 
               key={step.number}
-              className="bg-white p-6 rounded-xl shadow-sm animate-fade-up"
+              className="bg-white p-4 md:p-6 rounded-xl shadow-sm animate-fade-up"
               style={{ animationDelay: `${0.3 + index * 0.1}s` }}
             >
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold mb-4">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold mb-4">
                 {step.number}
               </div>
-              <p className="font-medium">{step.title}</p>
+              <p className="font-medium text-sm md:text-base">{step.title}</p>
             </div>
           ))}
         </div>

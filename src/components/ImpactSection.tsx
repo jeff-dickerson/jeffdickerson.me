@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 export const ImpactSection = () => {
-  const [activeSection, setActiveSection] = useState("startups");
+  const [activeSection, setActiveSection] = useState("enterprise");
 
   const steps = [
     { number: "1", title: "Together, we identify major opportunities for your product." },
@@ -12,13 +12,13 @@ export const ImpactSection = () => {
   ];
 
   const sectionContent = {
-    startups: {
-      title: "You see a market opportunity. Now you are in the midst of building the product and staffing a team?",
+    enterprise: {
+      title: "AI agents and intelligent automation has brought tailwinds for industries. You have in scope an AI initiative for growth but have resource constraints?",
       description: "In the early days, shipping fast and collecting feedback is key. I help you in executing your vision — without any managerial hassle."
     },
     scaleups: {
-      title: "You already validated your core product. Now it is time to listen for user feedback and scale?",
-      description: "The more mature your product gets, the more important becomes product discovery. I help you in shipping the right features, built with attention to detail."
+      title: "You have validated your core product or service. Now, you want to boost market value or increase productivity but lack the AI expertise?",
+      description: "AI Engineering sits at the intersection of Machine Learning research and software implementation. I help you create AI strategies to improve workflows and outputs that better serve a market or your stakeholders."
     },
     engineers: {
       title: "Looking to augment your engineering team with senior expertise?",
@@ -35,14 +35,14 @@ export const ImpactSection = () => {
           <div className="grid md:grid-cols-12 gap-6 md:gap-12 mb-8 md:mb-16">
             <div className="md:col-span-4 flex flex-col gap-4 md:gap-6 animate-fade-up" style={{ animationDelay: "0.2s" }}>
               <button 
-                onClick={() => setActiveSection("startups")}
+                onClick={() => setActiveSection("enterprise")}
                 className={`text-left text-[36px] leading-tight font-heading font-normal transition-all duration-200 px-4 py-2 ${
-                  activeSection === "startups" 
+                  activeSection === "enterprise" 
                     ? "text-primary" 
                     : "text-gray-400 hover:text-primary/80"
                 }`}
               >
-                Startups
+                Enterprise
               </button>
               <button 
                 onClick={() => setActiveSection("scaleups")}

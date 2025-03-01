@@ -5,10 +5,30 @@ export const ImpactSection = () => {
   const [activeSection, setActiveSection] = useState("enterprise");
 
   const steps = [
-    { number: "1", title: "Together, we identify major opportunities for your product." },
-    { number: "2", title: "We agree upon to turn your product into a new chapter." },
-    { number: "3", title: "Once committed, I start coding, exploring and polishing." },
-    { number: "4", title: "We gather additional user feedback and keep improving." }
+    { 
+      number: "1", 
+      title: "Skills workshop", 
+      description: "Together with you, we identify the roles, skills, certifications and competences needed to satisfy current and future business objectives.",
+      bgColor: "bg-purple-100" 
+    },
+    { 
+      number: "2", 
+      title: "Creating the skills taxonomy", 
+      description: "Based on your specifications, we iterate & develop a skills taxonomy that satisfies each role, covering both technical & soft skills.",
+      bgColor: "bg-purple-100"
+    },
+    { 
+      number: "3", 
+      title: "Implementation in MuchSkills", 
+      description: "We will deploy all roles and skills into the MuchSkills skills management platform. During staggered lunch-and-learn sessions, we walk through how employees can maximise their skills mapping experience.",
+      bgColor: "bg-purple-100"
+    },
+    { 
+      number: "4", 
+      title: "Done", 
+      description: "You now possess a skills and competences library/database to help you with your strategic workforce planning efforts. Employees can now also keep a track of their skills development, goals and skill-gaps.",
+      bgColor: "bg-green-100"
+    }
   ];
 
   const sectionContent = {
@@ -80,13 +100,16 @@ export const ImpactSection = () => {
           {steps.map((step, index) => (
             <div 
               key={step.number}
-              className="bg-white p-4 md:p-6 rounded-xl shadow-sm animate-fade-up"
+              className={`${step.bgColor} p-6 rounded-xl shadow-sm animate-fade-up`}
               style={{ animationDelay: `${0.3 + index * 0.1}s` }}
             >
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold mb-4">
-                {step.number}
+              <div className="mb-4">
+                <span className={`inline-block px-4 py-1 rounded-full text-sm font-medium ${step.number === "4" ? "bg-green-200" : "bg-purple-200"}`}>
+                  {step.number === "4" ? "Done" : `Step ${step.number}`}
+                </span>
               </div>
-              <p className="font-medium text-sm md:text-base">{step.title}</p>
+              <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
+              <p className="text-sm text-gray-700">{step.description}</p>
             </div>
           ))}
         </div>

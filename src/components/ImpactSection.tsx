@@ -9,25 +9,29 @@ export const ImpactSection = () => {
       number: "1", 
       title: "Skills workshop", 
       description: "Together with you, we identify the roles, skills, certifications and competences needed to satisfy current and future business objectives.",
-      bgColor: "bg-purple-100" 
+      bgColor: "bg-white", 
+      chipColor: "bg-primary/20 text-primary"
     },
     { 
       number: "2", 
       title: "Creating the skills taxonomy", 
       description: "Based on your specifications, we iterate & develop a skills taxonomy that satisfies each role, covering both technical & soft skills.",
-      bgColor: "bg-purple-100"
+      bgColor: "bg-white",
+      chipColor: "bg-primary/20 text-primary"
     },
     { 
       number: "3", 
       title: "Implementation in MuchSkills", 
       description: "We will deploy all roles and skills into the MuchSkills skills management platform. During staggered lunch-and-learn sessions, we walk through how employees can maximise their skills mapping experience.",
-      bgColor: "bg-purple-100"
+      bgColor: "bg-white",
+      chipColor: "bg-primary/20 text-primary"
     },
     { 
       number: "4", 
       title: "Done", 
       description: "You now possess a skills and competences library/database to help you with your strategic workforce planning efforts. Employees can now also keep a track of their skills development, goals and skill-gaps.",
-      bgColor: "bg-green-100"
+      bgColor: "bg-[#7F00FF]",
+      chipColor: "bg-white/20 text-white"
     }
   ];
 
@@ -104,12 +108,12 @@ export const ImpactSection = () => {
               style={{ animationDelay: `${0.3 + index * 0.1}s` }}
             >
               <div className="mb-4">
-                <span className={`inline-block px-4 py-1 rounded-full text-sm font-medium ${step.number === "4" ? "bg-green-200" : "bg-purple-200"}`}>
+                <span className={`inline-block px-4 py-1 rounded-full text-sm font-medium ${step.chipColor}`}>
                   {step.number === "4" ? "Done" : `Step ${step.number}`}
                 </span>
               </div>
-              <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
-              <p className="text-sm text-gray-700">{step.description}</p>
+              <h3 className={`text-2xl font-bold mb-2 ${step.number === "4" ? "text-white" : "text-gray-900"}`}>{step.title}</h3>
+              <p className={`text-sm ${step.number === "4" ? "text-white/80" : "text-gray-700"}`}>{step.description}</p>
             </div>
           ))}
         </div>

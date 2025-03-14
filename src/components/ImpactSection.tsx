@@ -7,22 +7,22 @@ export const ImpactSection = () => {
   const steps = [
     { 
       number: "1", 
-      title: "Skills workshop", 
-      description: "Together with you, we identify the roles, skills, certifications and competences needed to satisfy current and future business objectives.",
+      title: "Goals & Requirements", 
+      description: "We identify your goals, objectives and technology capabilities. Next, we define requirements which determines our strategy to enablement.",
       bgColor: "bg-white", 
       chipColor: "bg-primary/20 text-primary"
     },
     { 
       number: "2", 
-      title: "Creating the skills taxonomy", 
-      description: "Based on your specifications, we iterate & develop a skills taxonomy that satisfies each role, covering both technical & soft skills.",
+      title: "Architecture, Processes & Tasks", 
+      description: "Based on Reqs, we gather SOPs and outcomes. Agents are great but sometimes automation does the job!",
       bgColor: "bg-white",
       chipColor: "bg-primary/20 text-primary"
     },
     { 
       number: "3", 
-      title: "Implementation in MuchSkills", 
-      description: "We will deploy all roles and skills into the MuchSkills skills management platform. During staggered lunch-and-learn sessions, we walk through how employees can maximise their skills mapping experience.",
+      title: "Project Enablement", 
+      description: "Once we operationalize, then we test performance and put the solutions into production.",
       bgColor: "bg-white",
       chipColor: "bg-primary/20 text-primary"
     },

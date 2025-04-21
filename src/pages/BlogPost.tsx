@@ -54,7 +54,7 @@ const BlogPost = () => {
               <AvatarFallback>KM</AvatarFallback>
             </Avatar>
             <div>
-              <p className="font-medium">Konstantin Münster</p>
+              <p className="font-medium">Jeff Dickerson</p>
               <p className="text-sm text-gray-500">{post.date}</p>
             </div>
           </div>

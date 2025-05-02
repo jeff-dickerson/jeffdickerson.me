@@ -14,8 +14,8 @@ export const ImpactSection = () => {
     },
     { 
       number: "2", 
-      title: "Architecture, Processes & Tasks", 
-      description: "Based on Reqs, we gather SOPs and outcomes. Agents are great but sometimes automation does the job!",
+      title: "Infrastructure, Processes & Data", 
+      description: "Based on Reqs, we gather SOPs then leverage data for intelligence and best outcomes. Agents are great, but sometimes automation does the job!",
       bgColor: "bg-white",
       chipColor: "bg-primary/20 text-primary"
     },

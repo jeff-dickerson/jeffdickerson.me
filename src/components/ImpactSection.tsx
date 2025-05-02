@@ -40,9 +40,9 @@ export const ImpactSection = () => {
       title: "AI agents and intelligent automation has brought tailwinds for industries. You have in scope an AI initiative for growth but have resource constraints?",
       description: "In the early days, shipping fast and collecting feedback is key. I help you in executing your vision — without any managerial hassle."
     },
-    scaleups: {
-      title: "You have validated your core product or service. Now, you want to boost market value or increase productivity but lack the AI expertise?",
-      description: "AI Engineering sits at the intersection of Machine Learning research and software implementation. I help you create AI strategies to improve workflows and outputs that better serve a market or your stakeholders."
+    "public-sector": {
+      title: "You have validated your core product or service(s). Now, you need to modernize and transform the opportunities that are ahead of you, but lack the expertise?",
+      description: "I help support public sector organizations in advancing their technology goals by helping teams develop mission-critical strategies, data-driven analysis, and impactful AI initiatives."
     },
     engineers: {
       title: "Looking to augment your engineering team with senior expertise?",
@@ -69,14 +69,14 @@ export const ImpactSection = () => {
                 Enterprise
               </button>
               <button 
-                onClick={() => setActiveSection("scaleups")}
+                onClick={() => setActiveSection("public-sector")}
                 className={`text-left text-[36px] leading-tight font-heading font-normal transition-all duration-200 px-4 py-2 ${
-                  activeSection === "scaleups" 
+                  activeSection === "public-sector" 
                     ? "text-primary" 
                     : "text-gray-400 hover:text-primary/80"
                 }`}
               >
-                Scale-ups
+                Public Sector
               </button>
               <button 
                 onClick={() => setActiveSection("engineers")}

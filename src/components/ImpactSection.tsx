@@ -70,7 +70,7 @@ export const ImpactSection = () => {
               </button>
               <button 
                 onClick={() => setActiveSection("public-sector")}
-                className={`text-left text-[36px] leading-tight font-heading font-normal transition-all duration-200 px-4 py-2 ${
+                className={`text-left text-[30px] leading-tight font-heading font-normal transition-all duration-200 px-4 py-2 ${
                   activeSection === "public-sector" 
                     ? "text-primary" 
                     : "text-gray-400 hover:text-primary/80"

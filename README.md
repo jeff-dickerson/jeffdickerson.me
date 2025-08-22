@@ -1,69 +1,105 @@
-# Welcome to your Lovable project
+# Jeff Dickerson - Personal Portfolio & Blog
 
-## Project info
+This is the codebase for my personal portfolio website and blog, accessible at [jeffdickerson.me](https://jeffdickerson.me/) (replace with your actual URL if different).
 
-**URL**: https://lovable.dev/projects/0f6c25df-3433-4e03-ba48-f9b55370e9b3
+It showcases my projects, case studies, and articles related to web development and technology.
 
-## How can I edit this code?
+## Tech Stack
 
-There are several ways of editing your application.
+This project is built with a modern, performant, and developer-friendly stack:
 
-**Use Lovable**
+*   **Framework:** [React](https://reactjs.org/) (v18) with [TypeScript](https://www.typescriptlang.org/)
+*   **Build Tool:** [Vite](https://vitejs.dev/)
+*   **UI Components:** [shadcn/ui](https://ui.shadcn.com/) - Beautifully designed components that you can copy and paste into your apps.
+*   **Styling:** [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework.
+*   **Routing:** [React Router DOM](https://reactrouter.com/)
+*   **State Management (for server state):** [TanStack Query (React Query)](https://tanstack.com/query/latest)
+*   **Animations:** [Framer Motion](https://www.framer.com/motion/) (if used extensively, otherwise optional)
+*   **Linting/Formatting:** ESLint (configuration pending standard setup)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0f6c25df-3433-4e03-ba48-f9b55370e9b3) and start prompting.
+## Project Structure
 
-Changes made via Lovable will be committed automatically to this repo.
+The project follows a standard structure for Vite + React applications:
 
-**Use your preferred IDE**
+```
+.
+├── public/             # Static assets
+│   ├── components/     # Reusable UI components (both general and shadcn/ui based)
+│   │   └── ui/         # shadcn/ui components
+│   ├── data/           # Mock data or data fetching utilities
+│   ├── hooks/          # Custom React Hooks
+│   ├── lib/            # Utility functions, configurations (e.g., Tailwind)
+│   ├── pages/          # Page components corresponding to routes
+│   ├── App.tsx         # Main application component with routing setup
+│   ├── main.tsx        # Entry point of the application
+│   └── index.css       # Global styles and Tailwind base/components/utilities
+├── .eslintrc.js        # ESLint configuration (if added)
+├── .gitignore
+├── index.html          # Main HTML entry point
+├── package.json
+├── postcss.config.js   # PostCSS configuration (for Tailwind)
+├── tailwind.config.ts  # Tailwind CSS configuration
+├── tsconfig.json       # TypeScript configuration
+└── vite.config.ts      # Vite configuration
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
 
-Follow these steps:
+*   [Node.js](https://nodejs.org/) (LTS version recommended - e.g., v18 or v20)
+*   [npm](https://www.npmjs.com/) (comes with Node.js) or [Yarn](https://yarnpkg.com/) or [pnpm](https://pnpm.io/) or [Bun](https://bun.sh/)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+This project uses `npm` in the scripts below, but you can adapt them to your preferred package manager.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Installation
 
-# Step 3: Install the necessary dependencies.
-npm i
+1.  **Clone the repository:**
+    ```bash
+    git clone <YOUR_REPOSITORY_URL>
+    cd <YOUR_PROJECT_DIRECTORY>
+    ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+    (Or `yarn install`, `pnpm install`, `bun install`)
+
+### Development
+
+To start the development server:
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+This will start the Vite development server, typically at `http://localhost:8080` (or another port if 8080 is busy). The server features Hot Module Replacement (HMR) for a fast development experience.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Available Scripts
 
-**Use GitHub Codespaces**
+*   `npm run dev`: Starts the development server.
+*   `npm run build`: Builds the application for production in the `dist/` folder.
+*   `npm run build:dev`: Builds the application in development mode (less optimization, more debug info).
+*   `npm run lint`: Lints the codebase using ESLint (ensure ESLint is configured).
+*   `npm run preview`: Serves the production build locally from the `dist/` folder to preview it.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Deployment
 
-## What technologies are used for this project?
+1.  **Build the project:**
+    ```bash
+    npm run build
+    ```
+2.  Deploy the contents of the `dist/` folder to your preferred hosting provider (e.g., Netlify, Vercel, GitHub Pages, AWS S3/CloudFront).
 
-This project is built with .
+Many hosting providers can also be configured to build and deploy directly from your Git repository.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Contributing
 
-## How can I deploy this project?
+If you'd like to contribute or have suggestions, please feel free to open an issue or submit a pull request.
 
-Simply open [Lovable](https://lovable.dev/projects/0f6c25df-3433-4e03-ba48-f9b55370e9b3) and click on Share -> Publish.
+(If this is a personal project not open for public contributions, you can remove or modify this section.)
 
-## I want to use a custom domain - is that possible?
+## License
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+This project is licensed under the MIT License (or specify your chosen license).

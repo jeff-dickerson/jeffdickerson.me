@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 export const ImpactSection = () => {
@@ -9,28 +8,28 @@ export const ImpactSection = () => {
       number: "1", 
       title: "Goals & Requirements", 
       description: "We identify your goals, objectives and technology capabilities. Next, we define requirements which determines our strategy to enablement.",
-      bgColor: "bg-white", 
-      chipColor: "bg-primary/20 text-primary"
+      bgColor: "bg-white border border-gray-200 hover:border-blue-500 hover:shadow-md", 
+      chipColor: "bg-blue-100 text-blue-800"
     },
     { 
       number: "2", 
       title: "Infrastructure, Processes & Data", 
       description: "Based on Reqs, we gather SOPs then leverage data for intelligence and best outcomes. Agents are great, but sometimes automation does the job!",
-      bgColor: "bg-white",
-      chipColor: "bg-primary/20 text-primary"
+      bgColor: "bg-white border border-gray-200 hover:border-blue-500 hover:shadow-md",
+      chipColor: "bg-blue-100 text-blue-800"
     },
     { 
       number: "3", 
       title: "Project Enablement", 
       description: "Once we operationalize, then we test performance and put the solutions into production.",
-      bgColor: "bg-white",
-      chipColor: "bg-primary/20 text-primary"
+      bgColor: "bg-white border border-gray-200 hover:border-blue-500 hover:shadow-md",
+      chipColor: "bg-blue-100 text-blue-800"
     },
     { 
       number: "4", 
       title: "Done", 
       description: "You now possess a skills and competences library/database to help you with your strategic workforce planning efforts. Employees can now also keep a track of their skills development, goals and skill-gaps.",
-      bgColor: "bg-[#7F00FF]",
+      bgColor: "bg-blue-600 border border-blue-600 hover:bg-blue-700 hover:border-blue-700",
       chipColor: "bg-white/20 text-white"
     }
   ];
@@ -60,30 +59,30 @@ export const ImpactSection = () => {
             <div className="md:col-span-4 flex flex-col gap-4 md:gap-6 animate-fade-up" style={{ animationDelay: "0.2s" }}>
               <button 
                 onClick={() => setActiveSection("enterprise")}
-                className={`text-left text-[36px] leading-tight font-heading font-normal transition-all duration-200 px-4 py-2 ${
+                className={`text-left text-[36px] leading-tight font-heading font-normal transition-all duration-200 px-4 py-2 rounded-lg ${
                   activeSection === "enterprise" 
-                    ? "text-primary" 
-                    : "text-gray-400 hover:text-primary/80"
+                    ? "text-blue-600 bg-blue-50 border border-blue-200" 
+                    : "text-gray-400 hover:text-blue-500 hover:bg-blue-50 border border-transparent hover:border-blue-200"
                 }`}
               >
                 Enterprise
               </button>
               <button 
                 onClick={() => setActiveSection("public-sector")}
-                className={`text-left text-[30px] leading-tight font-heading font-normal transition-all duration-200 px-4 py-2 ${
+                className={`text-left text-[30px] leading-tight font-heading font-normal transition-all duration-200 px-4 py-2 rounded-lg ${
                   activeSection === "public-sector" 
-                    ? "text-primary" 
-                    : "text-gray-400 hover:text-primary/80"
+                    ? "text-blue-600 bg-blue-50 border border-blue-200" 
+                    : "text-gray-400 hover:text-blue-500 hover:bg-blue-50 border border-transparent hover:border-blue-200"
                 }`}
               >
                 Public Sector
               </button>
               <button 
                 onClick={() => setActiveSection("engineers")}
-                className={`text-left text-[36px] leading-tight font-heading font-normal transition-all duration-200 px-4 py-2 ${
+                className={`text-left text-[36px] leading-tight font-heading font-normal transition-all duration-200 px-4 py-2 rounded-lg ${
                   activeSection === "engineers" 
-                    ? "text-primary" 
-                    : "text-gray-400 hover:text-primary/80"
+                    ? "text-blue-600 bg-blue-50 border border-blue-200" 
+                    : "text-gray-400 hover:text-blue-500 hover:bg-blue-50 border border-transparent hover:border-blue-200"
                 }`}
               >
                 Engineers
@@ -104,7 +103,7 @@ export const ImpactSection = () => {
           {steps.map((step, index) => (
             <div 
               key={step.number}
-              className={`${step.bgColor} p-6 rounded-xl shadow-sm animate-fade-up`}
+              className={`${step.bgColor} p-6 rounded-xl shadow-sm animate-fade-up transition-all duration-300 cursor-pointer`}
               style={{ animationDelay: `${0.3 + index * 0.1}s` }}
             >
               <div className="mb-4">

@@ -6,24 +6,24 @@ import { CTA } from "@/components/CTA";
 const CaseStudies = () => {
   const caseStudies = [
     {
-      title: "Lazy",
-      description: "A capture tool for knowledge.",
+      title: "Kontrak IQ",
+      description: "An integrated contract data management system powered by AI.",
       date: "JUL 2023 - TODAY",
-      tags: ["Founding Engineer", "Tool/Editor", "ChatGPT", "Productivity", "Docs", "Artificial Intelligence"],
+      tags: ["Founding Engineer", "Cloud SaaS", "Orchestration", "Enterprise", "Data-driven", "Multi-agent"],
       image: "/lovable-uploads/d1e4ceee-3e2d-4e8c-8af3-6d2750e146e0.png"
     },
     {
-      title: "dskrpt",
-      description: "Digital scripts for lectures.",
-      date: "AUG 2023 - TODAY",
-      tags: ["Product Engineer", "Tool/Editor", "Web App", "Collaboration", "Education"],
+      title: "vLM",
+      description: "Contract corpus for vision and NLP.",
+      date: "Dec 2024 - TODAY",
+      tags: ["AI Architect", "Vision LLM", "Multimodal", "Web Inference", "Accumulative Learning"],
       image: "/lovable-uploads/d1e4ceee-3e2d-4e8c-8af3-6d2750e146e0.png"
     },
     {
-      title: "vykee",
-      description: "A new way of user onboarding.",
-      date: "SEP 2023 - OCT 2023",
-      tags: ["Product Engineer", "Web Development", "Web App", "B2B SaaS", "User Activation"],
+      title: "Aegis Vault",
+      description: "A self-managed investment fund .",
+      date: "May 2025 - June 2025",
+      tags: ["AI Engineer", "Blockchain Development", "DeFi App", "Cross-chain Integration", "On-chain Analytics"],
       image: "/lovable-uploads/d1e4ceee-3e2d-4e8c-8af3-6d2750e146e0.png"
     }
   ];

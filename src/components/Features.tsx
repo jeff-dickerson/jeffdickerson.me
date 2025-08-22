@@ -1,36 +1,35 @@
-
 import { Code, Users, Zap, Search, Monitor, BarChart } from "lucide-react";
 
 const features = [
   {
     icon: Code,
     title: "Technical Excellence",
-    description: "Clean, maintainable code that scales with your business.",
+    description: "You need AI Agents to enhance productivity in task execution, value capture, or data intelligence strategies.",
   },
   {
     icon: Users,
-    title: "User-Centered",
-    description: "Features that delight users and solve real problems.",
+    title: "Human-Centered",
+    description: "You wish to use LLM/AI to optimize your process orchestration leveraging proprietary data and domain expertise.",
   },
   {
     icon: Zap,
     title: "Fast Delivery",
-    description: "Quick iterations and rapid development cycles.",
+    description: "You need to become GenAI literate to upskill for a competitive digital labor market.",
   },
   {
     icon: Search,
     title: "Deep Analysis",
-    description: "Thorough understanding of your business needs.",
+    description: "You seek to pair AI with blockchain tokenization to get things done in digital environments.",
   },
   {
     icon: Monitor,
     title: "Modern Stack",
-    description: "Latest technologies and best practices.",
+    description: "You wish to modernize your digital transformation to accelerate growth or capture market share.",
   },
   {
     icon: BarChart,
     title: "Data-Driven",
-    description: "Decisions backed by metrics and analytics.",
+    description: "You need a unified infrastructure to connect your data to your AI initiatives.",
   },
 ];
 

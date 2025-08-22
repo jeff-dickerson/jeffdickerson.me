@@ -4,7 +4,7 @@ export const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold mb-4">Jeff</h3>
+            <h3 className="font-bold mb-4">Jeff Dickerson</h3>
             <p className="text-sm text-gray-600">
               AI Architect
             </p>

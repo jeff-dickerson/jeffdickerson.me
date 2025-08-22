@@ -1,19 +1,51 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lovable</title>
+
+    <!-- SEO Meta Tags -->
+    <title>Jeff Dickerson | Personal Portfolio</title>
+    <meta name="description" content="The personal portfolio and blog of Jeff Dickerson, showcasing case studies, projects, and articles." />
+    <meta name="keywords" content="Jeff Dickerson, portfolio, blog, case studies, web developer, projects" />
+    <meta name="author" content="Jeff Dickerson" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jeffdickerson.me/" />
+    <meta property="og:title" content="Jeff Dickerson | Personal Portfolio" />
+    <meta property="og:description" content="The personal portfolio and blog of Jeff Dickerson, showcasing case studies, projects, and articles." />
+    <meta property="og:image" content="https://jeffdickerson.me/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://jeffdickerson.me/" />
+    <meta property="twitter:title" content="Jeff Dickerson | Personal Portfolio" />
+    <meta property="twitter:description" content="The personal portfolio and blog of Jeff Dickerson, showcasing case studies, projects, and articles." />
+    <meta property="twitter:image" content="https://jeffdickerson.me/twitter-image.png" />
+
+    <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <!-- Request Russo One and Inter fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Russo+One&display=swap" rel="stylesheet">
+
+    <!-- Basic Structured Data (JSON-LD) - More can be added per page -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jeff Dickerson",
+      "url": "https://jeffdickerson.me/",
+      "sameAs": []
+    }
+    </script>
+
   </head>
   <body>
     <div id="root"></div>
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <!-- <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script> -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -6,52 +6,53 @@ export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="text-xl font-bold">
-            <svg
-              width="120"
-              height="40"
-              viewBox="0 0 120 40"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="text-black dark:text-white"
-            >
-              <path
-                d="M10 30L20 10L30 30M13 25H27M40 30V10H50C55 10 60 15 60 20C60 25 55 30 50 30H40ZM70 30V10H90M70 20H85"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <img 
+              src="/logo.png" 
+              alt="Jeff Dickerson Logo"
+              className="h-20 w-auto"
+            />
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link>
-            <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
-            <button className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
+            <Link to="/research" className="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Research</Link>
+            <Link to="/case-studies" className="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Case Studies</Link>
+            <Link to="/blog" className="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Blog</Link>
+            <a 
+              href="https://cal.com/jeffdickerson/15min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors inline-block text-center"
+            >
               Book a Call
-            </button>
+            </a>
           </div>
 
           <button 
             className="md:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X /> : <Menu />}
+            {isOpen ? <X className="dark:text-white"/> : <Menu className="dark:text-white"/>}
           </button>
         </div>
 
         {isOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-slate-900 border-t dark:border-slate-700">
             <div className="flex flex-col space-y-4 p-6">
-              <Link to="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link>
-              <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
-              <button className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
+              <Link to="/research" className="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Research</Link>
+              <Link to="/case-studies" className="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Case Studies</Link>
+              <Link to="/blog" className="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">Blog</Link>
+              <a 
+                href="https://cal.com/jeffdickerson/15min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors inline-block text-center"
+              >
                 Book a Call
-              </button>
+              </a>
             </div>
           </div>
         )}

@@ -19,9 +19,14 @@ export const Hero = () => {
             using AI. For engineers, startups and Scale-ups.
           </p>
           <div className="space-y-4 animate-fade-up" style={{ animationDelay: "0.8s" }}>
-            <button className="px-8 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
+            <a 
+              href="https://cal.com/jeffdickerson/15min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors inline-block text-center"
+            >
               Book Free Call
-            </button>
+            </a>
             <div className="flex justify-center space-x-8 mt-6">
               <div className="flex items-center space-x-2">
                 <Check className="text-primary" />

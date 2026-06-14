@@ -25,7 +25,7 @@ export const Navigation = () => {
               href="https://cal.com/jeffdickerson/15min"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors inline-block text-center"
+              className="px-6 py-2 bg-gray-900 text-white dark:bg-white dark:text-gray-900 rounded-full hover:opacity-90 transition-opacity inline-block text-center no-underline hover:no-underline font-medium"
             >
               Book a Call
             </a>
@@ -49,7 +49,7 @@ export const Navigation = () => {
                 href="https://cal.com/jeffdickerson/15min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors inline-block text-center"
+                className="px-6 py-2 bg-gray-900 text-white dark:bg-white dark:text-gray-900 rounded-full hover:opacity-90 transition-opacity inline-block text-center no-underline hover:no-underline font-medium"
               >
                 Book a Call
               </a>

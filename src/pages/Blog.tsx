@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
@@ -24,16 +25,16 @@ const Blog = () => {
     : blogPosts.filter(post => post.tag === selectedTag);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       <Navigation />
       <main className="container mx-auto px-6 pt-32 pb-20">
         <div className="max-w-[704px] mx-auto">
-          <h1 className="text-5xl font-bold mb-12 animate-fade-up">
-            Capturing my Learning <br /> with Blog
+          <h1 className="text-4xl md:text-5xl font-bold mb-12 animate-fade-up text-gray-900 dark:text-white">
+            Capturing my learning, <br /> one post at a time.
           </h1>
 
           <div className="mb-12">
-            <h2 className="text-lg font-semibold mb-3">Categories:</h2>
+            <h2 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">Categories:</h2>
             <div className="flex flex-wrap gap-2">
               {categories.map(category => (
                 <Badge
@@ -50,30 +51,30 @@ const Blog = () => {
 
           <div className="space-y-6">
             {filteredPosts.map(post => (
-              <div 
+              <div
                 key={post.id}
                 onClick={() => navigate(`/blog/${post.id}`)}
-                className="group bg-white border rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg h-[280px] w-[704px] cursor-pointer"
+                className="group w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-lg cursor-pointer"
               >
-                <div className="p-6 h-full">
-                  <div className="flex gap-6 h-full">
-                    <div className="flex-1 space-y-3">
-                      <span className="text-sm text-gray-500">{post.date}</span>
-                      <h3 className="text-2xl font-bold group-hover:text-primary transition-colors duration-300">
+                <div className="p-6">
+                  <div className="flex flex-col sm:flex-row gap-6">
+                    <div className="flex-1 space-y-3 order-2 sm:order-1">
+                      <span className="text-sm text-gray-500 dark:text-gray-400">{post.date}</span>
+                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors duration-300">
                         {post.title}
                       </h3>
-                      <p className="text-gray-600 text-base">
+                      <p className="text-gray-600 dark:text-gray-300 text-base">
                         {post.description}
                       </p>
                       <Badge variant="secondary" className="text-sm px-3 py-0.5">
                         {post.tag}
                       </Badge>
                     </div>
-                    <div className="w-[343.33px]">
+                    <div className="w-full sm:w-[280px] flex-shrink-0 order-1 sm:order-2">
                       <img
                         src={post.image}
                         alt=""
-                        className="w-[343.33px] h-[228.89px] object-cover rounded-2xl"
+                        className="w-full h-48 sm:h-full object-cover rounded-2xl"
                       />
                     </div>
                   </div>
@@ -84,6 +85,7 @@ const Blog = () => {
         </div>
       </main>
       <Footer />
+      <ThemeToggle />
     </div>
   );
 };

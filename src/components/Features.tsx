@@ -1,35 +1,41 @@
-import { Code, Users, Zap, Search, Monitor, BarChart } from "lucide-react";
+import { Workflow, Database, GraduationCap, Boxes, Gauge, Network } from "lucide-react";
 
 const features = [
   {
-    icon: Code,
-    title: "Technical Excellence",
-    description: "You need AI Agents to enhance productivity in task execution, value capture, or data intelligence strategies.",
+    icon: Workflow,
+    title: "Agentic workflows",
+    description:
+      "You need AI agents that actually execute work — task automation, value capture, and data-intelligence pipelines that hold up in production.",
   },
   {
-    icon: Users,
-    title: "Human-Centered",
-    description: "You wish to use LLM/AI to optimize your process orchestration leveraging proprietary data and domain expertise.",
+    icon: Database,
+    title: "Proprietary-data systems",
+    description:
+      "You want to put your own data and domain expertise to work — LLM systems that orchestrate process around what only your organization knows.",
   },
   {
-    icon: Zap,
-    title: "Fast Delivery",
-    description: "You need to become GenAI literate to upskill for a competitive digital labor market.",
+    icon: GraduationCap,
+    title: "GenAI literacy",
+    description:
+      "Your team needs to get fluent in AI — the practical kind — to stay competitive in a labor market that's repricing fast.",
   },
   {
-    icon: Search,
-    title: "Deep Analysis",
-    description: "You seek to pair AI with blockchain tokenization to get things done in digital environments.",
+    icon: Boxes,
+    title: "AI + tokenization",
+    description:
+      "You're pairing AI with blockchain tokenization and need someone who can architect across both without hand-waving.",
   },
   {
-    icon: Monitor,
-    title: "Modern Stack",
-    description: "You wish to modernize your digital transformation to accelerate growth or capture market share.",
+    icon: Gauge,
+    title: "Modernization",
+    description:
+      "You're modernizing a digital-transformation effort to accelerate growth or capture share, and the AI layer has to be done right.",
   },
   {
-    icon: BarChart,
-    title: "Data-Driven",
-    description: "You need a unified infrastructure to connect your data to your AI initiatives.",
+    icon: Network,
+    title: "Unified data infrastructure",
+    description:
+      "You need the plumbing — a unified infrastructure that connects your data to your AI initiatives instead of stranding it in silos.",
   },
 ];
 
@@ -37,21 +43,23 @@ export const Features = () => {
   return (
     <section id="services" className="py-20 bg-muted">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-12 animate-fade-up">
-          When companies implement AI initiatives,
-          <br />
-          strategic integration and data quality is key.
+        <h2 className="text-3xl font-bold text-center mb-4 animate-fade-up text-foreground">
+          Where I come in.
         </h2>
-        <div className="grid grid-cols-1 justify-items-center gap-x-10 gap-y-10 sm:grid-cols-2 sm:gap-x-16 sm:gap-y-16 lg:grid-cols-3">
+        <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          When organizations move on AI, strategic integration and data quality decide whether it
+          ships or stalls. These are the shapes of problem I take on.
+        </p>
+        <div className="grid grid-cols-1 justify-items-start gap-x-10 gap-y-10 sm:grid-cols-2 sm:gap-x-16 sm:gap-y-12 lg:grid-cols-3 max-w-6xl mx-auto">
           {features.map((feature, index) => (
             <div
               key={feature.title}
               className="flex items-start space-x-4 animate-fade-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <feature.icon className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
+              <feature.icon className="w-7 h-7 text-foreground flex-shrink-0 mt-1" />
               <div>
-                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+                <h3 className="text-lg font-semibold mb-2 text-foreground">{feature.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
               </div>
             </div>

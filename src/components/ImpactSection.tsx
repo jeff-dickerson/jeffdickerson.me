@@ -4,32 +4,35 @@ export const ImpactSection = () => {
   const [activeSection, setActiveSection] = useState("enterprise");
 
   const steps = [
-    { 
-      number: "1", 
-      title: "Goals & Requirements", 
+    {
+      number: "1",
+      title: "Goals & Requirements",
       description: "We identify your goals, objectives and technology capabilities. Next, we define requirements which determines our strategy to enablement.",
-      bgColor: "bg-white border border-gray-200 hover:border-blue-500 hover:shadow-md", 
-      chipColor: "bg-blue-100 text-blue-800"
+      bgColor: "bg-card border border-border hover:border-blue-500 hover:shadow-md",
+      chipColor: "bg-blue-500/10 text-blue-700 dark:text-blue-400"
     },
-    { 
-      number: "2", 
-      title: "Infrastructure, Processes & Data", 
+    {
+      number: "2",
+      title: "Infrastructure, Processes & Data",
       description: "Based on Reqs, we gather SOPs then leverage data for intelligence and best outcomes. Agents are great, but sometimes automation does the job!",
-      bgColor: "bg-white border border-gray-200 hover:border-blue-500 hover:shadow-md",
-      chipColor: "bg-blue-100 text-blue-800"
+      bgColor: "bg-card border border-border hover:border-blue-500 hover:shadow-md",
+      chipColor: "bg-blue-500/10 text-blue-700 dark:text-blue-400"
     },
-    { 
-      number: "3", 
-      title: "Project Enablement", 
+    {
+      number: "3",
+      title: "Project Enablement",
       description: "Once we operationalize, then we test performance and put the solutions into production.",
-      bgColor: "bg-white border border-gray-200 hover:border-blue-500 hover:shadow-md",
-      chipColor: "bg-blue-100 text-blue-800"
+      bgColor: "bg-card border border-border hover:border-blue-500 hover:shadow-md",
+      chipColor: "bg-blue-500/10 text-blue-700 dark:text-blue-400"
     },
-    { 
-      number: "4", 
-      title: "Done", 
+    {
+      // Deliberately fixed accent — this is the highlighted "done" step and
+      // should stay a blue-filled card in both themes, not flip to the
+      // token-driven card surface like steps 1-3.
+      number: "4",
+      title: "Done",
       description: "You now possess a skills and competences library/database to help you with your strategic workforce planning efforts. Employees can now also keep a track of their skills development, goals and skill-gaps.",
-      bgColor: "bg-blue-600 border border-blue-600 hover:bg-blue-700 hover:border-blue-700",
+      bgColor: "bg-blue-600 dark:bg-blue-500 border border-blue-600 dark:border-blue-500 hover:bg-blue-700 hover:border-blue-700",
       chipColor: "bg-white/20 text-white"
     }
   ];
@@ -50,7 +53,7 @@ export const ImpactSection = () => {
   };
 
   return (
-    <section className="py-12 md:py-20 bg-gray-50">
+    <section className="py-12 md:py-20 bg-muted">
       <div className="container mx-auto px-4 md:px-6 max-w-6xl">
         <h2 className="text-3xl md:text-4xl font-heading font-normal mb-8 md:mb-16 text-center animate-fade-up">Where my work has the most impact.</h2>
         
@@ -60,9 +63,9 @@ export const ImpactSection = () => {
               <button 
                 onClick={() => setActiveSection("enterprise")}
                 className={`text-left text-[36px] leading-tight font-heading font-normal transition-all duration-200 px-4 py-2 rounded-lg ${
-                  activeSection === "enterprise" 
-                    ? "text-blue-600 bg-blue-50 border border-blue-200" 
-                    : "text-gray-400 hover:text-blue-500 hover:bg-blue-50 border border-transparent hover:border-blue-200"
+                  activeSection === "enterprise"
+                    ? "text-blue-600 dark:text-blue-400 bg-blue-500/10 border border-blue-500/30"
+                    : "text-muted-foreground hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-950/40 border border-transparent hover:border-blue-200 dark:hover:border-blue-800"
                 }`}
               >
                 Enterprise
@@ -70,9 +73,9 @@ export const ImpactSection = () => {
               <button 
                 onClick={() => setActiveSection("public-sector")}
                 className={`text-left text-[30px] leading-tight font-heading font-normal transition-all duration-200 px-4 py-2 rounded-lg ${
-                  activeSection === "public-sector" 
-                    ? "text-blue-600 bg-blue-50 border border-blue-200" 
-                    : "text-gray-400 hover:text-blue-500 hover:bg-blue-50 border border-transparent hover:border-blue-200"
+                  activeSection === "public-sector"
+                    ? "text-blue-600 dark:text-blue-400 bg-blue-500/10 border border-blue-500/30"
+                    : "text-muted-foreground hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-950/40 border border-transparent hover:border-blue-200 dark:hover:border-blue-800"
                 }`}
               >
                 Public Sector
@@ -80,9 +83,9 @@ export const ImpactSection = () => {
               <button 
                 onClick={() => setActiveSection("engineers")}
                 className={`text-left text-[36px] leading-tight font-heading font-normal transition-all duration-200 px-4 py-2 rounded-lg ${
-                  activeSection === "engineers" 
-                    ? "text-blue-600 bg-blue-50 border border-blue-200" 
-                    : "text-gray-400 hover:text-blue-500 hover:bg-blue-50 border border-transparent hover:border-blue-200"
+                  activeSection === "engineers"
+                    ? "text-blue-600 dark:text-blue-400 bg-blue-500/10 border border-blue-500/30"
+                    : "text-muted-foreground hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-950/40 border border-transparent hover:border-blue-200 dark:hover:border-blue-800"
                 }`}
               >
                 Engineers
@@ -92,7 +95,7 @@ export const ImpactSection = () => {
               <h3 className="text-xl md:text-2xl font-bold mb-4">
                 {sectionContent[activeSection].title}
               </h3>
-              <p className="text-gray-600 text-base md:text-lg">
+              <p className="text-muted-foreground text-base md:text-lg">
                 {sectionContent[activeSection].description}
               </p>
             </div>
@@ -111,8 +114,8 @@ export const ImpactSection = () => {
                   {step.number === "4" ? "Done" : `Step ${step.number}`}
                 </span>
               </div>
-              <h3 className={`text-2xl font-bold mb-2 ${step.number === "4" ? "text-white" : "text-gray-900"}`}>{step.title}</h3>
-              <p className={`text-sm ${step.number === "4" ? "text-white/80" : "text-gray-700"}`}>{step.description}</p>
+              <h3 className={`text-2xl font-bold mb-2 ${step.number === "4" ? "text-white" : "text-foreground"}`}>{step.title}</h3>
+              <p className={`text-sm ${step.number === "4" ? "text-white/80" : "text-muted-foreground"}`}>{step.description}</p>
             </div>
           ))}
         </div>

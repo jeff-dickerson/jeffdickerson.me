@@ -1,6 +1,5 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, FileText, Users, Download } from "lucide-react";
@@ -105,16 +104,16 @@ const Research = () => {
     : theoryPapers.filter(paper => paper.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-background">
       <Navigation />
       <main className="container mx-auto px-6 pt-32 pb-20">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl font-heading mb-8">Research</h1>
-          
+
           {/* Theory Section */}
           <section className="mb-16">
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Theory</h2>
+              <h2 className="text-3xl font-bold text-foreground">Theory</h2>
               <Button variant="outline" className="flex items-center gap-2">
                 <Download className="w-4 h-4" />
                 Download All
@@ -139,21 +138,21 @@ const Research = () => {
             
             <div className="space-y-4">
               {filteredPapers.map((paper, index) => (
-                <div key={index} className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-md transition-shadow bg-white dark:bg-gray-800">
+                <div key={index} className="border border-border rounded-lg p-6 hover:shadow-md transition-shadow bg-card">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
-                        <FileText className="w-4 h-4 text-blue-600" />
-                        <span className="text-sm text-blue-600 font-medium">{paper.category}</span>
+                        <FileText className="w-4 h-4 text-primary" />
+                        <span className="text-sm text-primary font-medium">{paper.category}</span>
                       </div>
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 hover:text-blue-600 cursor-pointer">
+                      <h3 className="text-lg font-semibold text-foreground mb-2 hover:text-primary cursor-pointer">
                         {paper.title}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm">
+                      <p className="text-muted-foreground text-sm">
                         {paper.description}
                       </p>
                     </div>
-                    <Button variant="ghost" size="sm" className="flex items-center gap-1 text-blue-600 hover:text-blue-700">
+                    <Button variant="ghost" size="sm" className="flex items-center gap-1 text-primary hover:text-primary/80">
                       <ExternalLink className="w-4 h-4" />
                       View
                     </Button>
@@ -166,16 +165,16 @@ const Research = () => {
           {/* Experiments Section */}
           <section>
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Experiments</h2>
-              <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+              <h2 className="text-3xl font-bold text-foreground">Experiments</h2>
+              <div className="flex items-center gap-2 text-muted-foreground">
                 <Users className="w-4 h-4" />
                 <span className="text-sm">See Active Concepts & Ideas</span>
               </div>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {experiments.map((experiment, index) => (
-                <div key={index} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border border-gray-200 dark:border-gray-700">
+                <div key={index} className="bg-card rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border border-border">
                   <div className="aspect-square overflow-hidden">
                     <img
                       src={experiment.image}
@@ -185,24 +184,26 @@ const Research = () => {
                   </div>
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-2">
-                      <h3 className="font-semibold text-gray-900 dark:text-white text-sm">
+                      <h3 className="font-semibold text-foreground text-sm">
                         {experiment.name}
                       </h3>
                       <span className={`px-2 py-1 text-xs rounded-full ${
-                        experiment.status === 'production-grade' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'
+                        experiment.status === 'production-grade'
+                          ? 'bg-green-500/10 text-green-700 dark:text-green-400'
+                          : 'bg-blue-500/10 text-blue-700 dark:text-blue-400'
                       }`}>
                         {experiment.status}
                       </span>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-400 text-xs mb-3">
+                    <p className="text-muted-foreground text-xs mb-3">
                       {experiment.role}
                     </p>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm mb-4 leading-relaxed">
+                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
                       {experiment.description}
                     </p>
                     <div className="flex flex-wrap gap-1">
                       {experiment.technologies.map((tech, techIndex) => (
-                        <span key={techIndex} className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded">
+                        <span key={techIndex} className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded">
                           {tech}
                         </span>
                       ))}
@@ -215,7 +216,6 @@ const Research = () => {
         </div>
       </main>
       <Footer />
-      <ThemeToggle />
     </div>
   );
 };

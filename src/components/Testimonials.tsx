@@ -33,7 +33,7 @@ export const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.name}
-              className="p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 animate-fade-up"
+              className="p-6 bg-card rounded-lg shadow-sm hover:shadow-md transition-all duration-300 animate-fade-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-center mb-4">
@@ -44,12 +44,12 @@ export const Testimonials = () => {
                 />
                 <div>
                   <h3 className="font-semibold">{testimonial.name}</h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-muted-foreground">
                     {testimonial.role} at {testimonial.company}
                   </p>
                 </div>
               </div>
-              <p className="text-gray-700">{testimonial.content}</p>
+              <p className="text-muted-foreground">{testimonial.content}</p>
             </div>
           ))}
         </div>

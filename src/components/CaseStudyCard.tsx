@@ -16,7 +16,7 @@ export const CaseStudyCard = ({ title, description, date, tags, image }: CaseStu
     <div 
       onClick={() => setIsExpanded(!isExpanded)}
       className={`
-        group bg-gray-50 rounded-2xl p-8 hover:bg-gray-100 
+        group bg-muted rounded-2xl p-8 hover:bg-muted/70
         transition-all duration-300 animate-fade-up cursor-pointer
         ${isExpanded ? 'w-full' : 'w-[48%] mx-auto'}
       `}
@@ -26,13 +26,13 @@ export const CaseStudyCard = ({ title, description, date, tags, image }: CaseStu
         ${isExpanded ? 'md:grid-cols-2' : 'grid-cols-1'}
       `}>
         <div className="space-y-4">
-          <span className="text-sm text-gray-500">{date}</span>
+          <span className="text-sm text-muted-foreground">{date}</span>
           <h3 className="text-2xl font-bold group-hover:text-primary transition-colors duration-300 flex items-center gap-2">
             {title}
             <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </h3>
           <p className={`
-            text-gray-600 transition-all duration-300
+            text-muted-foreground transition-all duration-300
             ${isExpanded ? 'block' : 'line-clamp-2'}
           `}>
             {description}
@@ -41,7 +41,7 @@ export const CaseStudyCard = ({ title, description, date, tags, image }: CaseStu
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 bg-white rounded-full text-sm text-gray-600"
+                className="px-3 py-1 bg-background rounded-full text-sm text-muted-foreground"
               >
                 {tag}
               </span>

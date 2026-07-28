@@ -1,6 +1,6 @@
 export const About = () => {
   return (
-    <section id="about" className="pt-36 pb-20 bg-gray-50 dark:bg-slate-800">
+    <section id="about" className="pt-36 pb-20 bg-muted">
       <div className="container mx-auto px-6">
         {/* Flex container for two-column layout on lg, stacked on mobile */}
         {/* Image appears above text on mobile due to DOM order */}
@@ -17,21 +17,24 @@ export const About = () => {
 
           {/* Text Column (Order changed for visual layout on lg screens) */}
           <div className="w-full lg:w-7/12 lg:order-1 animate-fade-up">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading mb-2 text-gray-900 dark:text-gray-100">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading mb-2 text-foreground">
               Hi, I'm Jeff!
             </h2>
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-sans italic text-primary mb-6 sm:mb-8">
               autodidact, reimagineer and researcher
             </h3>
-            <div className="space-y-5 text-gray-700 dark:text-gray-400 text-base sm:text-lg leading-relaxed">
+            <div className="space-y-5 text-muted-foreground text-base sm:text-lg leading-relaxed">
               <p>
-                I'm an AI architect, which is just a fancy way of saying I build smart tools and systems that solve real-world problems using artificial intelligence. I'm the founder of Kontrak IQ, an enterprise contract data management platform powered by a vertical AI Agent. My expertise sits at the intersection of systems and software development.
+                I'm a researcher, entrepreneur and . As an AI architect, I orchestrate and build complex systems that help people solve real-world problems using AI models. I'm the founder of Kontrak IQ, an enterprise contract data management platform powered by a vertical AI Agent. My expertise sits at the intersection of systems and software development.
+              </p>
+              <p> 
+                Im a self taught programmer. Ive built tech that has made real business impact. I was an early researcher and contributor to the field token engineering.  I continue to learn, build and write aiming for high impact. 
               </p>
               <p>
-                Every two weeks, I publish G-Factor, where I dive into ideas about intelligence—how we think, how machines think, and how the two intersect. I believe technology should work for us—not the other way around. And I'm here to help make that happen.
+                I publish G-Factor, where I dive into ideas about intelligence—how we think, how machines think, and how the two intersect. I believe technology should work for us—not the other way around. And I'm here to help make that happen.
               </p>
             </div>
-            <button className="mt-8 px-8 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-700 dark:bg-primary dark:text-primary-foreground dark:hover:bg-opacity-80 transition-colors text-base sm:text-lg font-medium">
+            <button className="mt-8 px-8 py-3 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors text-base sm:text-lg font-medium">
               Learn More
             </button>
           </div>

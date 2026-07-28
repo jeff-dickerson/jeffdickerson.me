@@ -25,5 +25,17 @@ export default tseslint.config(
       ],
       "@typescript-eslint/no-unused-vars": "off",
     },
+  },
+  {
+    // Cloudflare Pages Functions run in the Workers runtime, not the
+    // browser — `globals.browser` above doesn't define `fetch`/`Request`/
+    // `Response`/etc. here, which would otherwise produce `no-undef` noise
+    // across this whole directory. `@cloudflare/workers-types` is
+    // intentionally not installed (see functions/api/subscribe.ts), so
+    // this uses the closest built-in globals set instead.
+    files: ["functions/**/*.{ts,tsx}"],
+    languageOptions: {
+      globals: globals.serviceworker,
+    },
   }
 );

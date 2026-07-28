@@ -29,12 +29,12 @@ const CaseStudies = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <Navigation />
       <main className="container mx-auto px-6 pt-32 pb-20">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-5xl font-bold mb-4 animate-fade-up">Case Studies</h1>
-          <p className="text-lg text-gray-600 mb-16 animate-fade-up">
+          <p className="text-lg text-muted-foreground mb-16 animate-fade-up">
             A small collection of freelance and open-source projects I worked on.
             Learn more about how my favorite projects look like.
           </p>

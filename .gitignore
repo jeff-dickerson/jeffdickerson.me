@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# Cloudflare Pages local secrets (holds PARAGRAPH_API_KEY) — never commit
+.dev.vars
+.wrangler
+
+# Claude Code agent worktrees — local scratch state, not part of the site
+.claude/worktrees/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

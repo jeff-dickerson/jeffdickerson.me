@@ -35,7 +35,7 @@ const features = [
 
 export const Features = () => {
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="py-20 bg-muted">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold text-center mb-12 animate-fade-up">
           When companies implement AI initiatives,
@@ -52,7 +52,7 @@ export const Features = () => {
               <feature.icon className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
               <div>
                 <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
               </div>
             </div>
           ))}

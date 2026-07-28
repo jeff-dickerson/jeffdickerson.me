@@ -1,19 +1,35 @@
+import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 
 export const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Avoid a wrong-icon flash: with defaultTheme="system", the first client
+  // render reports theme "system" (resolvedTheme is also unknown) before
+  // next-themes reads the OS preference. Render a same-size placeholder
+  // until mounted.
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="h-9 w-9 rounded-full" aria-hidden="true" />;
+  }
+
+  const isDark = resolvedTheme === "dark";
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="fixed bottom-6 left-6 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg transition-colors"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="p-2 rounded-full hover:bg-muted transition-colors"
       aria-label="Toggle theme"
     >
-      {theme === "dark" ? (
+      {isDark ? (
         <Sun className="h-5 w-5 text-yellow-500" />
       ) : (
-        <Moon className="h-5 w-5 text-gray-700" />
+        <Moon className="h-5 w-5 text-muted-foreground" />
       )}
     </button>
   );

@@ -7,23 +7,30 @@
 
     <!-- SEO Meta Tags -->
     <title>Jeff Dickerson | Personal Portfolio</title>
-    <meta name="description" content="The personal portfolio and blog of Jeff Dickerson, showcasing case studies, projects, and articles." />
+    <!--
+      The tags below are marked data-rh="true" — the attribute
+      react-helmet-async uses to recognize tags it owns. src/components/Seo.tsx
+      (mounted on /blog and /blog/:slug) replaces them with per-page values on
+      first render instead of appending duplicates alongside them. Pages that
+      don't render <Seo> (Index, About, etc.) keep these as their defaults.
+    -->
+    <meta name="description" content="The personal portfolio and blog of Jeff Dickerson, showcasing case studies, projects, and articles." data-rh="true" />
     <meta name="keywords" content="Jeff Dickerson, portfolio, blog, case studies, web developer, projects" />
     <meta name="author" content="Jeff Dickerson" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jeffdickerson.me/" />
-    <meta property="og:title" content="Jeff Dickerson | Personal Portfolio" />
-    <meta property="og:description" content="The personal portfolio and blog of Jeff Dickerson, showcasing case studies, projects, and articles." />
-    <meta property="og:image" content="https://jeffdickerson.me/og-image.png" />
+    <meta property="og:type" content="website" data-rh="true" />
+    <meta property="og:url" content="https://jeffdickerson.me/" data-rh="true" />
+    <meta property="og:title" content="Jeff Dickerson | Personal Portfolio" data-rh="true" />
+    <meta property="og:description" content="The personal portfolio and blog of Jeff Dickerson, showcasing case studies, projects, and articles." data-rh="true" />
+    <meta property="og:image" content="https://jeffdickerson.me/og-image.png" data-rh="true" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://jeffdickerson.me/" />
-    <meta property="twitter:title" content="Jeff Dickerson | Personal Portfolio" />
-    <meta property="twitter:description" content="The personal portfolio and blog of Jeff Dickerson, showcasing case studies, projects, and articles." />
-    <meta property="twitter:image" content="https://jeffdickerson.me/twitter-image.png" />
+    <meta property="twitter:card" content="summary_large_image" data-rh="true" />
+    <meta property="twitter:url" content="https://jeffdickerson.me/" data-rh="true" />
+    <meta property="twitter:title" content="Jeff Dickerson | Personal Portfolio" data-rh="true" />
+    <meta property="twitter:description" content="The personal portfolio and blog of Jeff Dickerson, showcasing case studies, projects, and articles." data-rh="true" />
+    <meta property="twitter:image" content="https://jeffdickerson.me/twitter-image.png" data-rh="true" />
 
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,6 +48,21 @@
       "sameAs": []
     }
     </script>
+
+    <!-- Plausible Analytics (Privacy-focused) -->
+    <script defer data-domain="jeffdickerson.me" src="https://plausible.io/js/script.js"></script>
+
+    <!-- Google Analytics (Optional - remove if using only Plausible) -->
+    <!-- Uncomment and add your GA4 measurement ID -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
 
   </head>
   <body>

@@ -14,7 +14,7 @@ export const Hero = () => {
               thinking productivity.
             </span>
           </h1>
-          <p className="text-xl text-gray-600 animate-fade-up" style={{ animationDelay: "0.6s" }}>
+          <p className="text-xl text-muted-foreground animate-fade-up" style={{ animationDelay: "0.6s" }}>
             Front load your production tools for success and execution<br />
             using AI. For engineers, startups and Scale-ups.
           </p>
@@ -23,7 +23,7 @@ export const Hero = () => {
               href="https://cal.com/jeffdickerson/15min"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors inline-block text-center"
+              className="px-8 py-3 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors inline-block text-center"
             >
               Book Free Call
             </a>

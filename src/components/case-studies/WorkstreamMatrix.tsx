@@ -1,6 +1,6 @@
 interface Workstream {
   name: string;
-  agent: string | null;
+  automation: string | null;
   tiers: [boolean, boolean, boolean, boolean, boolean];
   weeks: string;
   color: string;
@@ -9,20 +9,20 @@ interface Workstream {
 const TIERS = ["Users", "Security", "App services", "Data layer", "Integrations"];
 
 const WORKSTREAMS: Workstream[] = [
-  { name: "Discovery", agent: "Schema archaeologist", tiers: [false, false, true, true, true], weeks: "W1–2", color: "#EF9F27" },
-  { name: "Platform config", agent: "Process cartographer", tiers: [false, false, true, true, false], weeks: "W2–5", color: "#378ADD" },
-  { name: "Data migration", agent: "Data shepherd", tiers: [false, false, true, true, true], weeks: "W3–11", color: "#E24B4A" },
-  { name: "Classification", agent: "Taxonomy enforcer", tiers: [false, true, true, true, false], weeks: "W3–15", color: "#1D9E75" },
-  { name: "Scanner deploy", agent: "Device wrangler", tiers: [true, false, false, false, true], weeks: "W3–6", color: "#378ADD" },
-  { name: "Student portal", agent: null, tiers: [true, true, true, false, false], weeks: "W5–10", color: "#378ADD" },
-  { name: "Integrations", agent: null, tiers: [false, true, true, false, true], weeks: "W1–10", color: "#7F77DD" },
-  { name: "Training", agent: "Curriculum architect", tiers: [true, false, true, false, false], weeks: "W8–14", color: "#639922" },
-  { name: "Compliance", agent: "Regulation sentinel", tiers: [false, true, true, true, false], weeks: "W11–15", color: "#7F77DD" },
-  { name: "UAT + go-live", agent: null, tiers: [true, true, true, true, true], weeks: "W11–15", color: "#639922" },
+  { name: "Discovery", automation: "Schema + endpoint mapping", tiers: [false, false, true, true, true], weeks: "W1–2", color: "#EF9F27" },
+  { name: "Platform config", automation: "Workflow + metadata config", tiers: [false, false, true, true, false], weeks: "W2–5", color: "#378ADD" },
+  { name: "Data migration", automation: "SageMaker extraction pipeline", tiers: [false, false, true, true, true], weeks: "W3–11", color: "#E24B4A" },
+  { name: "Classification", automation: "SageMaker classification", tiers: [false, true, true, true, false], weeks: "W3–15", color: "#1D9E75" },
+  { name: "Scanner deploy", automation: "Automated provisioning", tiers: [true, false, false, false, true], weeks: "W3–6", color: "#378ADD" },
+  { name: "Student portal", automation: null, tiers: [true, true, true, false, false], weeks: "W5–10", color: "#378ADD" },
+  { name: "Integrations", automation: null, tiers: [false, true, true, false, true], weeks: "W1–10", color: "#7F77DD" },
+  { name: "Training", automation: "Generated from live config", tiers: [true, false, true, false, false], weeks: "W8–14", color: "#639922" },
+  { name: "Compliance", automation: "Automated test suites", tiers: [false, true, true, true, false], weeks: "W11–15", color: "#7F77DD" },
+  { name: "UAT + go-live", automation: null, tiers: [true, true, true, true, true], weeks: "W11–15", color: "#639922" },
 ];
 
 const LEGEND = [
-  { color: "#EF9F27", label: "AI agent driven" },
+  { color: "#EF9F27", label: "AI-automated" },
   { color: "#378ADD", label: "Platform / infra" },
   { color: "#E24B4A", label: "Migration" },
   { color: "#1D9E75", label: "Classification" },
@@ -73,9 +73,9 @@ export const WorkstreamMatrix = () => {
                   <div className="text-sm font-medium text-gray-900 dark:text-white truncate">
                     {ws.name}
                   </div>
-                  {ws.agent && (
+                  {ws.automation && (
                     <div className="text-[11px] text-gray-500 dark:text-gray-400 truncate">
-                      {ws.agent}
+                      {ws.automation}
                     </div>
                   )}
                 </div>

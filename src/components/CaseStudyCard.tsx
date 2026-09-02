@@ -1,13 +1,14 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { CaseStudy } from "@/data/caseStudies";
+import { CaseStudyCover } from "@/components/case-studies/CaseStudyCover";
 
 interface CaseStudyCardProps {
   study: CaseStudy;
 }
 
 export const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
-  const { slug, title, cardOutcome, date, industry, tags, image, externalUrl } = study;
+  const { slug, title, cardOutcome, date, industry, tags, cover, externalUrl } = study;
 
   const cardInner = (
     <div className="group bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 animate-fade-up h-full flex flex-col no-underline hover:no-underline">
@@ -32,13 +33,7 @@ export const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
           </span>
         ))}
       </div>
-      <div className="aspect-[16/9] bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-100 dark:border-gray-700">
-        <img
-          src={image}
-          alt={`${title} — visual`}
-          className="w-full h-full object-cover"
-        />
-      </div>
+      <CaseStudyCover variant={cover} />
     </div>
   );
 

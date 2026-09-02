@@ -162,12 +162,12 @@ const CaseStudyDetail = () => {
             <div className={SECTION_WIDTH}>
               <SectionHeading
                 eyebrow="Parallelism"
-                title="Where the agents sit on the critical path"
+                title="Where the framework collapses the critical path"
               />
               <p className={`${PROSE_WIDTH} text-base text-gray-600 dark:text-gray-400 mb-8 leading-relaxed`}>
                 Ten workstreams against five architecture tiers. The concurrency row at the
-                bottom is where the schedule pressure shows up — and where AI agents take the
-                serial-work slots that would otherwise block humans.
+                bottom is where the schedule pressure shows up — and where the AI workflow
+                framework parallelizes the serial-work slots that would otherwise block delivery.
               </p>
               <WorkstreamMatrix />
             </div>

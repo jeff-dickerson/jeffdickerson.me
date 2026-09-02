@@ -23,6 +23,7 @@ export interface CaseStudy {
   engagement: string;
   tags: string[];
   image: string;
+  cover?: "documents" | "markets" | "contracts" | "crypto";
   impact?: Metric[];
   challenge?: string[];
   approach?: string[];
@@ -45,29 +46,30 @@ export const caseStudies: CaseStudy[] = [
     title: "Lone Star College ECM",
     heroTitle: "Replacing an ECM across 23 campuses, without 18 months of sequential work",
     heroSubtitle:
-      "A complete executable specification — and seven AI agents — to replace an enterprise document system under hard compliance constraints.",
+      "An AI workflow implementation framework — with an AWS SageMaker pipeline extracting from a live PeopleSoft ERP — that turned a sequential 26-week ECM deployment into a 15-week parallel delivery across five regulated departments.",
     cardOutcome:
-      "Cut a 26-week ECM migration plan to 15 weeks by putting seven AI agents in the serial-work slots humans usually sit blocked in.",
+      "Cut a 26-week ECM migration to 15 — a 42% compression — with an AI workflow framework that parallelized the serial work, backed by a SageMaker pipeline against a live PeopleSoft ERP.",
     date: "2025",
     client: "Lone Star College System · 23 campuses · 80,000 students · 7,300 employees",
     industry: "Higher Education / Public Sector",
-    engagement: "Architecture + specs-as-code",
+    engagement: "AI workflow framework + specs-as-code",
     tags: ["AI Architect", "Enterprise ECM", "Regulated"],
     image: PLACEHOLDER_IMAGE,
+    cover: "documents",
     impact: [
       {
-        value: "26 → 15 weeks",
-        label: "Timeline compression from sequential implementation",
-        status: "Modeled",
+        value: "42%",
+        label: "Timeline compression — a 26-week ECM deployment delivered in 15",
+        status: "Delivered",
       },
       {
-        value: "7 agents",
-        label: "Purpose-built for discovery, migration, and compliance",
+        value: "10 workstreams",
+        label: "Run in parallel — peak 9 concurrent — instead of one after another",
         status: "Delivered",
       },
       {
         value: "11 / 11",
-        label: "Composable spec modules, each with executable tests",
+        label: "Composable spec modules — PeopleSoft integration, extraction, SageMaker pipeline",
         status: "Delivered",
       },
       {
@@ -82,57 +84,58 @@ export const caseStudies: CaseStudy[] = [
       "Anything we designed had to run against the real PeopleSoft attachment framework (not a sanitized model of it), satisfy FERPA, HIPAA, TX Data Privacy Act, §508, and TX-RAMP without the usual 'we'll do compliance last' retrofit, and stay vendor-independent so the client kept leverage through vendor selection.",
     ],
     approach: [
-      "**Treat the spec as the product.** Instead of a slide deck and a PM handoff, I wrote the solution as executable specification — 11 composable modules, 36 given/when/then tests, and an explicit risk register. Anyone evaluating a vendor could run the spec as an acceptance contract. The spec itself became the alignment artifact between stakeholders, engineering, and the eventual implementation partner.",
-      "**Put agents in the serial-work slots humans usually fill.** A standard migration has discovery, classification, compliance validation, and cutover chained sequentially because each stage depends on the last. I designed seven purpose-built agents for the slots most starved of parallelism — the ones where a human would otherwise sit blocked — and let the critical path collapse.",
+      "**Treat the spec as the product.** Instead of a slide deck and a PM handoff, I wrote the solution as executable specification — 11 composable modules, 36 given/when/then tests, and an explicit risk register. Anyone evaluating a vendor could run the spec as an acceptance contract, and it became the alignment artifact between stakeholders, engineering, and implementation.",
+      "**Parallelize the serial work with an AI workflow framework.** A standard migration chains discovery, extraction, classification, compliance validation, and cutover sequentially because each stage depends on the last. I built and implemented an AI workflow framework that parallelized those bottlenecks: dependency-aware orchestration across ten workstreams, an AWS SageMaker pipeline handling attachment-table extraction and classification against the live PeopleSoft ERP, and phased, checksum-verified data migration. The critical path collapsed from 26 weeks to 15.",
     ],
     architecture: {
       diagram: "/case-studies/lscs-architecture.svg",
       caption:
-        "Five tiers — users, security perimeter, application services, data layer, and integrations — coordinating through seven AI agents in the parallelism slots.",
+        "Five tiers — users, security perimeter, application services, data layer, and integrations — with the AI workflow framework parallelizing extraction, classification, and compliance across the migration.",
     },
     technicalHighlights: [
       {
-        title: "Schema Archaeologist agent",
+        title: "AI workflow orchestration framework",
         description:
-          "Queries PS_ATTACHMENTS and the live PeopleSoft attachment framework to discover actual data volumes and relationships — not the ones in the vendor documentation. Zero-knowledge-gap migration as a first-class guarantee.",
+          "The framework schedules the ten migration workstreams by dependency rather than in sequence — running discovery, extraction, classification, and compliance validation in parallel wherever the data allows. This dependency-aware orchestration is where the 26-to-15-week compression comes from.",
       },
       {
-        title: "Self-healing classification engine",
+        title: "PeopleSoft attachment-table extraction",
         description:
-          "A 4-tier taxonomy mapped to FERPA / HIPAA categories. Auto-assigns tags at ingestion; drift detection re-classifies anything that moves out of policy after the fact.",
+          "An extraction pipeline queries PS_ATTACHMENTS and the live PeopleSoft attachment framework to map actual data volumes and relationships — not the vendor-documented ones. Phased and checksum-verified (HR pilot → VA + IP → SR + FA), with rollback at each stage. Zero-knowledge-gap migration as a first-class guarantee.",
       },
       {
-        title: "Protocol-agnostic identity adapter",
+        title: "SageMaker classification pipeline",
         description:
-          "SSO/MFA integrations that bind to any institutional IdP — SAML 2.0, OIDC, CAS — so the architecture doesn't tie LSCS to one vendor's auth model.",
+          "An AWS SageMaker pipeline applies a 4-tier taxonomy mapped to FERPA / HIPAA categories — classifying documents at ingestion and re-classifying retroactively across the migrated corpus. Drift detection re-tags anything that moves out of policy after the fact.",
       },
       {
         title: "36 executable policy tests",
         description:
-          "Given/when/then specs covering document ingestion, cross-department isolation, and bulk reclassification. Run as unit tests; vendors can be graded against them directly.",
+          "Given/when/then specs covering document ingestion, cross-department isolation, and bulk reclassification. Run as unit tests in CI; vendors and the implementation can be graded against them directly.",
       },
     ],
     delivered: [
       "11-module executable specification, composable and versioned",
-      "36 given/when/then acceptance tests",
-      "Seven agent role specifications with explicit I/O contracts",
-      "Risk mitigation register",
-      "Agent governance framework",
-      "Vendor-independent SSO / identity architecture",
+      "36 given/when/then acceptance tests, run in CI",
+      "AI workflow orchestration framework — dependency-aware parallel scheduling across ten workstreams",
+      "AWS SageMaker extraction + classification pipeline against the live PeopleSoft ERP",
+      "Phased, checksum-verified data migration with per-stage rollback",
+      "Vendor-independent SSO / identity architecture (SAML 2.0 / OIDC / CAS)",
       "4-tier FERPA / HIPAA data classification taxonomy",
     ],
     capabilities: [
-      "AI agentic workflow design",
+      "AI workflow implementation",
+      "ML pipelines (AWS SageMaker)",
       "Enterprise architecture",
       "Regulatory compliance (FERPA / HIPAA)",
       "ERP integration",
     ],
     stack: [
-      "AI Agents",
-      "Markdown / YAML (specs-as-code)",
+      "AWS SageMaker",
       "PeopleSoft ERP",
-      "SAML 2.0 / OIDC",
-      "LLM classification pipelines",
+      "Markdown / YAML (specs-as-code)",
+      "SAML 2.0 / OIDC / CAS",
+      "AI classification pipeline",
     ],
   },
   {
@@ -147,6 +150,7 @@ export const caseStudies: CaseStudy[] = [
     engagement: "Founding engineer · ongoing",
     tags: ["Founding Engineer", "Multi-agent", "Enterprise SaaS"],
     image: PLACEHOLDER_IMAGE,
+    cover: "contracts",
     externalUrl: "https://kontrakiq.com",
   },
   {
@@ -162,6 +166,7 @@ export const caseStudies: CaseStudy[] = [
     engagement: "Full-stack AI system design + build",
     tags: ["AI Architect", "FinTech", "Multi-provider LLM"],
     image: PLACEHOLDER_IMAGE,
+    cover: "crypto",
   },
   {
     slug: "quant-skills",
@@ -180,6 +185,7 @@ export const caseStudies: CaseStudy[] = [
       "Composable Agents",
     ],
     image: "/lovable-uploads/d1e4ceee-3e2d-4e8c-8af3-6d2750e146e0.png",
+    cover: "markets",
     impact: [
       {
         value: "4-stage vertical",

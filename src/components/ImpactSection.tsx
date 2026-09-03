@@ -11,8 +11,7 @@ export const ImpactSection = () => {
       title: "Discovery",
       description:
         "Goals & requirements. We pin down the goal, the constraints, and the capability you already have — that defines the strategy, not the other way around.",
-      bgColor:
-        "bg-white border border-gray-200 hover:border-primary hover:shadow-md dark:bg-gray-900 dark:border-gray-700 dark:hover:border-primary",
+      bgColor: "bg-card border border-border hover:border-primary hover:shadow-md",
       chipColor: "bg-primary/10 text-primary",
     },
     {
@@ -20,8 +19,7 @@ export const ImpactSection = () => {
       title: "Design",
       description:
         "Infrastructure, processes & data. We map the SOPs and put your data to work — agents where they earn their place, plain automation where that's the honest answer.",
-      bgColor:
-        "bg-white border border-gray-200 hover:border-primary hover:shadow-md dark:bg-gray-900 dark:border-gray-700 dark:hover:border-primary",
+      bgColor: "bg-card border border-border hover:border-primary hover:shadow-md",
       chipColor: "bg-primary/10 text-primary",
     },
     {
@@ -29,16 +27,19 @@ export const ImpactSection = () => {
       title: "Enablement",
       description:
         "Project enablement. We operationalize, test against real conditions — not a sanitized demo — and put the solution into production.",
-      bgColor:
-        "bg-white border border-gray-200 hover:border-primary hover:shadow-md dark:bg-gray-900 dark:border-gray-700 dark:hover:border-primary",
+      bgColor: "bg-card border border-border hover:border-primary hover:shadow-md",
       chipColor: "bg-primary/10 text-primary",
     },
     {
+      // Deliberately fixed accent — this is the highlighted "done" step and
+      // should stay a blue-filled card in both themes, not flip to the
+      // token-driven card surface like steps 1-3 (bg-primary would render
+      // as a near-white block in dark mode).
       number: "4",
       title: "Handoff",
       description:
         "You walk away with a working AI system your team owns — documented, tested, and runnable without me. And your people are more AI-native than when we started.",
-      bgColor: "bg-primary border border-primary hover:opacity-90",
+      bgColor: "bg-blue-600 dark:bg-blue-500 border border-blue-600 dark:border-blue-500 hover:bg-blue-700 hover:border-blue-700",
       chipColor: "bg-white/20 text-white",
     },
   ];
@@ -71,9 +72,9 @@ export const ImpactSection = () => {
   ];
 
   return (
-    <section className="py-12 md:py-20 bg-gray-50 dark:bg-slate-800">
+    <section className="py-12 md:py-20 bg-muted">
       <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-heading font-normal mb-8 md:mb-16 text-center animate-fade-up text-gray-900 dark:text-white">
+        <h2 className="text-3xl md:text-4xl font-heading font-normal mb-8 md:mb-16 text-center animate-fade-up text-foreground">
           Where my work has the most impact.
         </h2>
 
@@ -90,7 +91,7 @@ export const ImpactSection = () => {
                   className={`text-left text-3xl leading-tight font-heading font-semibold transition-all duration-200 px-4 py-2 rounded-lg ${
                     activeSection === seg.key
                       ? "text-primary bg-primary/10 border border-primary/30"
-                      : "text-gray-400 hover:text-primary hover:bg-primary/5 border border-transparent hover:border-primary/20 dark:text-gray-500 dark:hover:text-primary"
+                      : "text-muted-foreground hover:text-primary hover:bg-primary/5 border border-transparent hover:border-primary/20"
                   }`}
                 >
                   {seg.label}
@@ -98,10 +99,10 @@ export const ImpactSection = () => {
               ))}
             </div>
             <div className="md:col-span-8 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-              <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 text-foreground">
                 {sectionContent[activeSection].title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
                 {sectionContent[activeSection].description}
               </p>
             </div>
@@ -122,12 +123,12 @@ export const ImpactSection = () => {
               </div>
               <h3
                 className={`text-2xl font-bold mb-2 ${
-                  step.number === "4" ? "text-white" : "text-gray-900 dark:text-white"
+                  step.number === "4" ? "text-white" : "text-foreground"
                 }`}
               >
                 {step.title}
               </h3>
-              <p className={`text-sm ${step.number === "4" ? "text-white/80" : "text-gray-700 dark:text-gray-300"}`}>
+              <p className={`text-sm ${step.number === "4" ? "text-white/80" : "text-muted-foreground"}`}>
                 {step.description}
               </p>
             </div>

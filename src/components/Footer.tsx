@@ -18,23 +18,23 @@ const connectLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="py-12 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+    <footer className="py-12 bg-background border-t border-border">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="font-bold mb-4 text-gray-900 dark:text-white">Jeff Dickerson</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <h3 className="font-bold mb-4 text-foreground">Jeff Dickerson</h3>
+            <p className="text-sm text-muted-foreground">
               AI architect, systems builder, researcher.
             </p>
           </div>
           <div>
-            <h4 className="font-semibold mb-4 text-gray-900 dark:text-white">Navigation</h4>
+            <h4 className="font-semibold mb-4 text-foreground">Navigation</h4>
             <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors no-underline"
+                    className="text-muted-foreground hover:text-primary transition-colors no-underline"
                   >
                     {link.label}
                   </Link>
@@ -43,7 +43,7 @@ export const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4 text-gray-900 dark:text-white">Connect</h4>
+            <h4 className="font-semibold mb-4 text-foreground">Connect</h4>
             <ul className="space-y-2">
               {connectLinks.map((link) => (
                 <li key={link.label}>
@@ -51,7 +51,7 @@ export const Footer = () => {
                     href={link.href}
                     target={link.href.startsWith("http") ? "_blank" : undefined}
                     rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors no-underline"
+                    className="text-muted-foreground hover:text-primary transition-colors no-underline"
                   >
                     {link.label}
                   </a>
@@ -60,7 +60,7 @@ export const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-gray-100 dark:border-gray-800 text-center text-gray-600 dark:text-gray-400">
+        <div className="mt-12 pt-8 border-t border-border text-center text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Jeff Dickerson. All rights reserved.</p>
         </div>
       </div>

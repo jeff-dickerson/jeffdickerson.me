@@ -41,12 +41,12 @@ const features = [
 
 export const Features = () => {
   return (
-    <section id="services" className="py-20 bg-gray-50 dark:bg-slate-800">
+    <section id="services" className="py-20 bg-muted">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-4 animate-fade-up text-gray-900 dark:text-white">
+        <h2 className="text-3xl font-bold text-center mb-4 animate-fade-up text-foreground">
           Where I come in.
         </h2>
-        <p className="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+        <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12 animate-fade-up" style={{ animationDelay: "0.1s" }}>
           When organizations move on AI, strategic integration and data quality decide whether it
           ships or stalls. These are the shapes of problem I take on.
         </p>
@@ -57,10 +57,10 @@ export const Features = () => {
               className="flex items-start space-x-4 animate-fade-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <feature.icon className="w-7 h-7 text-gray-900 dark:text-white flex-shrink-0 mt-1" />
+              <feature.icon className="w-7 h-7 text-foreground flex-shrink-0 mt-1" />
               <div>
-                <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">{feature.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg font-semibold mb-2 text-foreground">{feature.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
               </div>
             </div>
           ))}

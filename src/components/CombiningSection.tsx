@@ -8,13 +8,13 @@ const Card = ({
   role: string;
   points: string[];
 }) => (
-  <BackgroundGradient className="rounded-[22px] bg-white dark:bg-zinc-900 h-full">
+  <BackgroundGradient className="rounded-[22px] bg-card h-full">
     <div className="w-full h-full p-8 sm:p-10 rounded-[20px] flex flex-col">
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">You primarily need an</p>
-      <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">{role}</h3>
+      <p className="text-sm text-muted-foreground mb-1">You primarily need an</p>
+      <h3 className="text-2xl font-bold mb-6 text-foreground">{role}</h3>
       <ul className="space-y-4 flex-1">
         {points.map((point) => (
-          <li key={point} className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+          <li key={point} className="flex items-start gap-3 text-muted-foreground">
             <span className="text-primary mt-0.5 flex-shrink-0">✓</span>
             <span>{point}</span>
           </li>
@@ -24,7 +24,7 @@ const Card = ({
         href="https://cal.com/jeffdickerson/15min"
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-8 px-6 py-3 bg-gray-900 text-white dark:bg-white dark:text-gray-900 rounded-full hover:opacity-90 transition-opacity inline-block text-center self-start font-medium no-underline hover:no-underline"
+        className="mt-8 px-6 py-3 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors inline-block text-center self-start font-medium no-underline hover:no-underline"
       >
         Schedule a call
       </a>
@@ -36,11 +36,11 @@ export const CombiningSection = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-5 animate-fade-up text-gray-900 dark:text-white">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-5 animate-fade-up text-foreground">
           Two ways I plug in.
         </h2>
         <p
-          className="text-lg text-center text-gray-600 dark:text-gray-400 mb-14 max-w-2xl mx-auto animate-fade-up leading-relaxed"
+          className="text-lg text-center text-muted-foreground mb-14 max-w-2xl mx-auto animate-fade-up leading-relaxed"
           style={{ animationDelay: "0.2s" }}
         >
           Most engagements need one of these more than the other. Tell me which problem you're
@@ -67,7 +67,7 @@ export const CombiningSection = () => {
         <div className="text-center mt-10 animate-fade-up">
           <Link
             to="/case-studies"
-            className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary underline-offset-4"
+            className="text-sm font-medium text-muted-foreground hover:text-primary underline-offset-4"
           >
             See how this has played out →
           </Link>

@@ -1,0 +1,5 @@
+[33m2afbadb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Remove bun.lockb to use npm instead
+[33m69a273e[m Add _routes.json for Cloudflare Pages SPA routing support
+[33m6e2f1b9[m Update vite.config.ts with improved build configuration and server settings
+[33mdc67f23[m Initial commit for jeffdickerson.me website
+[33m1cff05e[m Update project template

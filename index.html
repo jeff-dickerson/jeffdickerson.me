@@ -9,26 +9,33 @@
 
     <!-- SEO Meta Tags -->
     <title>Jeff Dickerson — AI Architect & Strategy Leader</title>
-    <meta name="description" content="AI architect building enterprise AI systems for regulated, high-stakes environments — agentic workflows, domain-specialized model training, and the specifications that hold them together." />
+    <!--
+      The tags below are marked data-rh="true" — the attribute
+      react-helmet-async uses to recognize tags it owns. src/components/Seo.tsx
+      (mounted on /blog and /blog/:slug) replaces them with per-page values on
+      first render instead of appending duplicates alongside them. Pages that
+      don't render <Seo> (Index, About, etc.) keep these as their defaults.
+    -->
+    <meta name="description" content="AI architect building enterprise AI systems for regulated, high-stakes environments — agentic workflows, domain-specialized model training, and the specifications that hold them together." data-rh="true" />
     <meta name="keywords" content="Jeff Dickerson, AI architect, AI strategy, enterprise AI, agentic workflows, LLM training, MLOps, Kontrak IQ, Polygent Labs" />
     <meta name="author" content="Jeff Dickerson" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jeffdickerson.me/" />
-    <meta property="og:title" content="Jeff Dickerson — AI Architect & Strategy Leader" />
-    <meta property="og:description" content="AI architect building enterprise AI systems for regulated, high-stakes environments — agentic workflows, domain-specialized model training, and the specifications that hold them together." />
-    <meta property="og:image" content="https://jeffdickerson.me/og-image.jpg" />
+    <meta property="og:type" content="website" data-rh="true" />
+    <meta property="og:url" content="https://jeffdickerson.me/" data-rh="true" />
+    <meta property="og:title" content="Jeff Dickerson — AI Architect & Strategy Leader" data-rh="true" />
+    <meta property="og:description" content="AI architect building enterprise AI systems for regulated, high-stakes environments — agentic workflows, domain-specialized model training, and the specifications that hold them together." data-rh="true" />
+    <meta property="og:image" content="https://jeffdickerson.me/og-image.jpg" data-rh="true" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Jeff Dickerson — AI Architect & Strategy Leader" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://jeffdickerson.me/" />
-    <meta property="twitter:title" content="Jeff Dickerson — AI Architect & Strategy Leader" />
-    <meta property="twitter:description" content="AI architect building enterprise AI systems for regulated, high-stakes environments — agentic workflows, domain-specialized model training, and the specifications that hold them together." />
-    <meta property="twitter:image" content="https://jeffdickerson.me/og-image.jpg" />
+    <meta property="twitter:card" content="summary_large_image" data-rh="true" />
+    <meta property="twitter:url" content="https://jeffdickerson.me/" data-rh="true" />
+    <meta property="twitter:title" content="Jeff Dickerson — AI Architect & Strategy Leader" data-rh="true" />
+    <meta property="twitter:description" content="AI architect building enterprise AI systems for regulated, high-stakes environments — agentic workflows, domain-specialized model training, and the specifications that hold them together." data-rh="true" />
+    <meta property="twitter:image" content="https://jeffdickerson.me/og-image.jpg" data-rh="true" />
 
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,6 +53,21 @@
       "sameAs": []
     }
     </script>
+
+    <!-- Plausible Analytics (Privacy-focused) -->
+    <script defer data-domain="jeffdickerson.me" src="https://plausible.io/js/script.js"></script>
+
+    <!-- Google Analytics (Optional - remove if using only Plausible) -->
+    <!-- Uncomment and add your GA4 measurement ID -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
 
   </head>
   <body>

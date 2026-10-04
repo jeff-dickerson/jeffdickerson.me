@@ -1,16 +1,10 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Badge } from "@/components/ui/badge";
-import { ExternalLink, FileText, Users } from "lucide-react";
-import { useState } from "react";
-
-const categories = ["All Categories", "Privacy/Security", "AI Agents"];
+import { ExternalLink } from "lucide-react";
 
 const Research = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>("All Categories");
-
   // Theory section — peer-style write-ups. Links are filled in as papers are published;
-  // the View affordance only renders when a real link exists.
+  // until a real link exists the card says the write-up is in progress.
   const theoryPapers = [
     {
       title: "Intelligent Threats: Security and Vulnerabilities of LLMs and AI Agents in the Enterprise",
@@ -69,11 +63,6 @@ const Research = () => {
     },
   ];
 
-  const filteredPapers =
-    selectedCategory === "All Categories"
-      ? theoryPapers
-      : theoryPapers.filter((paper) => paper.category === selectedCategory);
-
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -90,45 +79,32 @@ const Research = () => {
           <section className="mb-16">
             <h2 className="text-3xl font-bold text-foreground mb-8">Theory</h2>
 
-            <div className="mb-8">
-              <h3 className="text-lg font-semibold mb-3 text-foreground">Categories:</h3>
-              <div className="flex flex-wrap gap-2">
-                {categories.map((category) => (
-                  <Badge
-                    key={category}
-                    variant={selectedCategory === category ? "default" : "outline"}
-                    className="cursor-pointer"
-                    onClick={() => setSelectedCategory(category)}
-                  >
-                    {category}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-
             <div className="space-y-4">
-              {filteredPapers.map((paper, index) => (
+              {theoryPapers.map((paper, index) => (
                 <div
                   key={index}
-                  className="border border-border rounded-lg p-6 hover:shadow-md transition-shadow bg-card"
+                  className="border border-border rounded-2xl p-6 bg-card"
                 >
-                  <div className="flex items-start justify-between gap-4">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                     <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <FileText className="w-4 h-4 text-muted-foreground" />
-                        <span className="text-sm text-muted-foreground font-medium">{paper.category}</span>
-                      </div>
+                      <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-2">
+                        {paper.category}
+                      </p>
                       <h3 className="text-lg font-semibold text-foreground mb-2">
                         {paper.title}
                       </h3>
                       <p className="text-muted-foreground text-sm">{paper.description}</p>
                     </div>
-                    {paper.link !== "#" && (
+                    {paper.link === "#" ? (
+                      <span className="text-sm text-muted-foreground flex-shrink-0">
+                        Write-up in progress
+                      </span>
+                    ) : (
                       <a
                         href={paper.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 text-primary hover:opacity-80 text-sm font-medium no-underline flex-shrink-0"
+                        className="flex items-center gap-1 text-primary hover:opacity-80 transition-opacity text-sm font-medium no-underline flex-shrink-0"
                       >
                         <ExternalLink className="w-4 h-4" />
                         View
@@ -142,21 +118,15 @@ const Research = () => {
 
           {/* Experiments Section */}
           <section>
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold text-foreground">Experiments</h2>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <Users className="w-4 h-4" />
-                <span className="text-sm">Active concepts &amp; ideas</span>
-              </div>
-            </div>
+            <h2 className="text-3xl font-bold text-foreground mb-8">Experiments</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {experiments.map((experiment, index) => (
                 <div
                   key={index}
-                  className="bg-card rounded-xl shadow-sm hover:shadow-md transition-shadow border border-border p-6 flex flex-col"
+                  className="bg-card rounded-2xl border border-border p-6 flex flex-col"
                 >
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-start justify-between gap-2 mb-3">
                     <span className="text-[11px] uppercase tracking-wider text-muted-foreground">
                       {experiment.role}
                     </span>

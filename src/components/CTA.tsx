@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 // Deliberately fixed dark palette — this full-bleed band should stay dark
 // in both themes (with an inverse light button), not flip with the
@@ -19,16 +20,17 @@ export const CTA = () => {
             of getting it wrong is real — send a short note describing the situation. I'll tell you
             whether or not it's a fit.
           </p>
-          <a
-            href="https://cal.com/jeffdickerson/15min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-neutral-50 text-neutral-950 rounded-full hover:bg-neutral-200 transition-colors animate-fade-up no-underline hover:no-underline font-medium"
+          <Button
+            asChild
+            size="lg"
+            className="bg-neutral-50 text-neutral-950 hover:bg-neutral-200 animate-fade-up"
             style={{ animationDelay: "0.3s" }}
           >
-            Book a call
-            <ArrowUpRight className="w-4 h-4" />
-          </a>
+            <a href="https://cal.com/jeffdickerson/15min" target="_blank" rel="noopener noreferrer">
+              Book a call
+              <ArrowUpRight />
+            </a>
+          </Button>
         </div>
       </div>
     </section>

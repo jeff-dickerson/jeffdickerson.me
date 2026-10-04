@@ -11,7 +11,8 @@ Apply these consistently. They were established in a site-wide design pass (visu
 **Typography**
 - One-font system: **Inter** for both body (`font-sans`) and headings (`font-heading`), via Google Fonts in `index.html`.
 - Global rule in `src/index.css` applies `font-heading font-semibold tracking-tight` to all `h1–h6`. Large display headings add `font-bold` to override to 700.
-- Eyebrow label pattern: `text-xs uppercase tracking-[0.18em] text-gray-500 dark:text-gray-400`.
+- Eyebrow label pattern: `text-xs uppercase tracking-[0.18em] text-muted-foreground`.
+- Section headings: `text-3xl md:text-4xl font-bold`. Page `h1`: `text-4xl md:text-5xl font-bold`. Only the home hero goes larger.
 
 **Color — neutral-dominant, accent used deliberately**
 - The palette is mostly neutral (near-black / white / gray). Color appears with intention, NOT sprayed on every element. Reference feel: konstantin.digital.
@@ -22,9 +23,13 @@ Apply these consistently. They were established in a site-wide design pass (visu
 - Semantic status colors are exempt and intentional: metric chips (emerald `Delivered` / amber `Modeled` / gray `Projected` / sky `In production`), experiment status (green/blue).
 
 **Components**
-- Primary button (pill): `px-6 py-3 rounded-full bg-gray-900 text-white dark:bg-white dark:text-gray-900 hover:opacity-90 transition-opacity font-medium no-underline hover:no-underline`. Add `inline-flex items-center gap-2` + an `ArrowUpRight` icon for the main CTA.
-- Secondary button: same shape, `border border-gray-300 dark:border-gray-700` instead of fill.
-- Content card: `rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700`.
+- Buttons: always the shared `Button` (`src/components/ui/button.tsx`), never a hand-rolled pill. It is a pill in every variant. Primary = default variant (monochrome `bg-foreground text-background`); secondary = `variant="outline"`. Three heights only: `sm` 36px, default 40px (nav, forms, in-page actions), `lg` 48px (section CTAs). Links use `<Button asChild>`. Add an `ArrowUpRight` icon for the main CTA.
+- One verb per action: the booking CTA is always "Book a call".
+- One primary button per screen; everything else is outline or a text link.
+- Content card: `rounded-2xl bg-card border border-border` (or `bg-muted` on a plain section). Hover styles only on cards that are actually clickable.
+- Icons sit on a solid circle: `flex h-11 w-11 items-center justify-center rounded-full bg-muted` with a `h-5 w-5` neutral icon.
+- Long strings: clamp titles and excerpts (`line-clamp-*` / `truncate`) so real data can't break a card.
+- Filters: don't add one for a list that fits on a screen; cap visible chips (blog shows 5 + "More").
 - Every interactive element needs a hover state + `transition-*` (feedback). Internal nav uses router `<Link>`, not `<a href>`.
 
 **Layout**
@@ -32,7 +37,7 @@ Apply these consistently. They were established in a site-wide design pass (visu
 - Case-study detail sections share one width: `max-w-5xl mx-auto`, with prose blocks constrained to `max-w-3xl` so headings align to a single left edge.
 
 **Dark mode**
-- Every component must have `dark:` variants. Never ship hardcoded `bg-white`/`text-gray-*` without a dark counterpart (this was a recurring bug).
+- Use the theme tokens (`bg-background`, `bg-muted`, `bg-card`, `text-foreground`, `text-muted-foreground`, `border-border`) so both themes come for free. Never ship hardcoded `bg-white`/`text-gray-*` without a `dark:` counterpart (this was a recurring bug).
 
 ## Voice
 

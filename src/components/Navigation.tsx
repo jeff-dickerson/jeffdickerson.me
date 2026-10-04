@@ -1,7 +1,27 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { Button } from "@/components/ui/button";
+
+const navLinks = [
+  { label: "Research", to: "/research" },
+  { label: "Case Studies", to: "/case-studies" },
+  { label: "Blog", to: "/blog" },
+];
+
+const navLinkClass = ({ isActive }: { isActive: boolean }) =>
+  `no-underline hover:no-underline transition-colors hover:text-primary ${
+    isActive ? "text-primary" : "text-muted-foreground"
+  }`;
+
+const BookCall = () => (
+  <Button asChild>
+    <a href="https://cal.com/jeffdickerson/15min" target="_blank" rel="noopener noreferrer">
+      Book a call
+    </a>
+  </Button>
+);
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,26 +39,22 @@ export const Navigation = () => {
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/research" className="text-muted-foreground hover:text-primary transition-colors">Research</Link>
-            <Link to="/case-studies" className="text-muted-foreground hover:text-primary transition-colors">Case Studies</Link>
-            <Link to="/blog" className="text-muted-foreground hover:text-primary transition-colors">Blog</Link>
-            <a
-              href="https://cal.com/jeffdickerson/15min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-2 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors inline-block text-center"
-            >
-              Book a Call
-            </a>
+            {navLinks.map((link) => (
+              <NavLink key={link.to} to={link.to} className={navLinkClass}>
+                {link.label}
+              </NavLink>
+            ))}
+            <BookCall />
             <ThemeToggle />
           </div>
 
           <div className="flex items-center gap-1 md:hidden">
             <ThemeToggle />
             <button
-              className="p-2"
+              className="p-2 rounded-full hover:bg-muted transition-colors"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="text-foreground" /> : <Menu className="text-foreground" />}
             </button>
@@ -47,18 +63,13 @@ export const Navigation = () => {
 
         {isOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-background border-t border-border">
-            <div className="flex flex-col space-y-4 p-6">
-              <Link to="/research" className="text-muted-foreground hover:text-primary transition-colors">Research</Link>
-              <Link to="/case-studies" className="text-muted-foreground hover:text-primary transition-colors">Case Studies</Link>
-              <Link to="/blog" className="text-muted-foreground hover:text-primary transition-colors">Blog</Link>
-              <a
-                href="https://cal.com/jeffdickerson/15min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-2 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors inline-block text-center"
-              >
-                Book a Call
-              </a>
+            <div className="flex flex-col items-start space-y-4 p-6">
+              {navLinks.map((link) => (
+                <NavLink key={link.to} to={link.to} className={navLinkClass}>
+                  {link.label}
+                </NavLink>
+              ))}
+              <BookCall />
             </div>
           </div>
         )}

@@ -16,6 +16,8 @@ These are decided. Don't relitigate per-case:
 - **Voice**: operator-honest — specific, dry, confident. Not B2B marketing-speak. Avoid words like "leverage", "robust", "transform". Use concrete nouns and verbs.
 - **Layout**: every section frame is `max-w-5xl mx-auto`. Prose blocks inside use `max-w-3xl`. Headings align to one left edge.
 - **Section order** (skip what doesn't apply): Hero → Impact → Challenge → Approach → (bespoke parallelism component) → Architecture → Technical highlights → Delivered → (bespoke projected-outcomes component) → Capabilities + Stack → CTA.
+- **Field-notes sections** (preferred for new cases): `sections[]`, each with a margin `label` (Real problem / Full stack / Production / Outcome), optional `note` and `title`, and typed `blocks` — `text`, `list`, `quote`, `table`, `figure` (a key in `CaseFigures.tsx`), `image`, `embed` (a self-contained page under `public/demos/`, framed and auto-sized), `chips`, `link`. `meta[]` renders the Role / Scope / Stack strip under the hero. The legacy `challenge` / `approach` / `technicalHighlights` fields still render for older cases.
+- **Anonymized clients stay anonymized**: if the brief describes the client generically, never add the real name to data, slugs, assets, or comments.
 - **`**bold**` markdown convention**: use for emphasis in challenge/approach paragraphs; the page renders this via `renderWithBold`.
 - **Contact email**: `jeffery.dickerson@protonmail.com`.
 
@@ -35,9 +37,9 @@ Shows existing slugs, status (full / skeleton / external), and which sections ea
 
 ### 2. [you] Parse the brief into structured data
 
-The user gives you a brief in prose (like the LSC ECM markdown). Convert it to a JSON object matching the `CaseStudy` type. Save to a tmp file (e.g., `/tmp/brief-<slug>.json`).
+The user gives you a brief in prose (markdown, prose, or a standalone HTML page). Convert it to a JSON object matching the `CaseStudy` type. Save to a tmp file (e.g., `/tmp/brief-<slug>.json`).
 
-**Slug**: use judgment. "Lone Star College ECM" → `lsc-ecm`. "Natural-Language Crypto Trading" → `crypto-trading`. Acronym-aware, lowercase kebab-case.
+**Slug**: use judgment. "Natural-Language Crypto Trading" → `crypto-trading`. Acronym-aware, lowercase kebab-case.
 
 **Voice review**: as you write `heroTitle`, `heroSubtitle`, `cardOutcome`, challenge paragraphs, approach paragraphs — apply the operator-honest rule. If the brief sounds like marketing, rewrite. Suggested ladder:
 - Bad: "We transformed their workflow into a modern, scalable platform."
@@ -104,7 +106,7 @@ If no: skip step 7.
 
 ### 7. [you] Wire bespoke components into `CaseStudyDetail.tsx`
 
-Conditional placement. Pattern (copy from LSC):
+Conditional placement. Pattern (copy from the `quant-skills` block):
 
 ```tsx
 {study.slug === "<slug>" && (

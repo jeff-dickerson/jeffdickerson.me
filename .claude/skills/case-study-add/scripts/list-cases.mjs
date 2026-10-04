@@ -7,7 +7,7 @@
  *
  * Status:
  *   external — has externalUrl, doesn't render a detail page
- *   full     — has impact + challenge + approach (renders full detail)
+ *   full     — has sections, or impact + challenge + approach (renders full detail)
  *   skeleton — minimal fields only (detail page renders placeholder)
  *
  * Usage:
@@ -85,7 +85,7 @@ const rows = entries.map((e) => {
 
   let status;
   if (hasExternal) status = "external";
-  else if (hasImpact && hasChallenge && hasApproach) status = "full";
+  else if (field(e, "sections") || (hasImpact && hasChallenge && hasApproach)) status = "full";
   else status = "skeleton";
 
   const flags = [

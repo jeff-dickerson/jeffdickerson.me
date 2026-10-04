@@ -2,16 +2,22 @@
 // Line art inherits `currentColor` (set neutral on the wrapper) and the blue
 // accent via `hsl(var(--primary))`, so both adapt to light/dark automatically.
 
-export type CoverVariant = "documents" | "markets" | "contracts" | "crypto" | "default";
+export type CoverVariant =
+  | "documents"
+  | "markets"
+  | "contracts"
+  | "crypto"
+  | "pipeline"
+  | "triage"
+  | "default";
 
 const ACCENT = "hsl(var(--primary))";
 
 const frameClass =
-  "aspect-[16/9] w-full rounded-lg overflow-hidden border border-gray-100 dark:border-gray-700 " +
-  "bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 " +
-  "text-gray-400 dark:text-gray-600";
+  "aspect-[16/9] w-full rounded-lg overflow-hidden border border-border bg-background " +
+  "text-muted-foreground/60";
 
-/* ---- LSC ECM: legacy documents → parallel lanes → structured tiers ---- */
+/* ---- Community college: legacy documents → parallel lanes → structured tiers ---- */
 const DocumentsCover = () => (
   <>
     {/* messy legacy docs, left */}
@@ -176,6 +182,54 @@ const CryptoCover = () => (
   </>
 );
 
+/* ---- Preflight: six pipeline stages with an approval gate ---- */
+const PipelineCover = () => (
+  <>
+    <g strokeWidth="2" fill="none">
+      {[0, 1, 2, 3, 4, 5].map((i) => (
+        <rect
+          key={i}
+          x={26 + i * 46}
+          y="62"
+          width="36"
+          height="26"
+          rx="4"
+          stroke={i < 2 ? ACCENT : "currentColor"}
+          fill={i < 2 ? ACCENT : "none"}
+          fillOpacity={i < 2 ? 0.14 : 0}
+        />
+      ))}
+      <path d="M62 75 H72 M108 75 H118 M154 75 H164 M200 75 H210 M246 75 H256" stroke="currentColor" />
+    </g>
+    {/* trace line + approval check */}
+    <path d="M44 88 V124 H236" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="3 4" />
+    <circle cx="258" cy="124" r="16" fill={ACCENT} fillOpacity="0.14" stroke={ACCENT} strokeWidth="2" />
+    <path d="M250 124 l6 6 l10 -12" fill="none" stroke={ACCENT} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+  </>
+);
+
+/* ---- Healthcare intake: voice in → supervisor + three agents ---- */
+const TriageCover = () => (
+  <>
+    {/* voice waveform */}
+    <g stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+      {[18, 34, 22, 44, 28, 14].map((h, i) => (
+        <line key={i} x1={34 + i * 10} y1={90 - h / 2} x2={34 + i * 10} y2={90 + h / 2} />
+      ))}
+    </g>
+    <path d="M100 90 H132" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="3 4" />
+    {/* supervisor */}
+    <rect x="160" y="34" width="84" height="30" rx="6" fill={ACCENT} fillOpacity="0.14" stroke={ACCENT} strokeWidth="2" />
+    {/* agents */}
+    <g stroke="currentColor" strokeWidth="2" fill="none">
+      <path d="M186 64 L160 112 M202 64 V112 M218 64 L244 112" />
+      <rect x="136" y="112" width="40" height="28" rx="5" />
+      <rect x="182" y="112" width="40" height="28" rx="5" />
+      <rect x="228" y="112" width="40" height="28" rx="5" />
+    </g>
+  </>
+);
+
 const DefaultCover = () => (
   <g stroke="currentColor" strokeWidth="2" fill="none">
     <circle cx="160" cy="90" r="40" />
@@ -188,6 +242,8 @@ const VARIANTS: Record<CoverVariant, () => JSX.Element> = {
   markets: MarketsCover,
   contracts: ContractsCover,
   crypto: CryptoCover,
+  pipeline: PipelineCover,
+  triage: TriageCover,
   default: DefaultCover,
 };
 

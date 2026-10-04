@@ -13,8 +13,8 @@ export const CaseStudyCard = ({ study }: CaseStudyCardProps) => {
   const cardInner = (
     <div className="group bg-muted rounded-2xl p-8 hover:bg-muted/70 transition-all duration-300 animate-fade-up h-full flex flex-col no-underline hover:no-underline">
       <div className="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-muted-foreground mb-6">
-        <span>{date}</span>
         <span>{industry}</span>
+        {date && <span>{date}</span>}
       </div>
       <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 flex items-start justify-between gap-3">
         <span>{title}</span>

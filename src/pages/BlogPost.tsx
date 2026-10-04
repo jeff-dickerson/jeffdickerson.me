@@ -136,8 +136,8 @@ const BlogPost = () => {
                   .join("")}
               </AvatarFallback>
             </Avatar>
-            <div className="flex-1">
-              <p className="font-medium">{post.author.name}</p>
+            <div className="min-w-0 flex-1">
+              <p className="truncate font-medium">{post.author.name}</p>
               <PostMeta post={post} />
             </div>
             {post.canonicalUrl && (
@@ -145,7 +145,7 @@ const BlogPost = () => {
                 href={post.canonicalUrl}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary"
+                className="flex shrink-0 items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-primary"
               >
                 Read on Paragraph
                 <ExternalLink className="h-3 w-3" />
@@ -186,13 +186,13 @@ const BlogPost = () => {
               {prevPost ? (
                 <Link
                   to={`/blog/${prevPost.slug}`}
-                  className="group flex flex-col gap-1 rounded-lg border border-border p-4 no-underline text-foreground transition-colors hover:border-primary"
+                  className="group flex flex-col gap-1 rounded-2xl border border-border p-4 no-underline text-foreground transition-colors hover:border-primary"
                 >
                   <span className="flex items-center gap-1 text-sm text-muted-foreground">
                     <ChevronLeft className="h-3 w-3" />
                     Previous
                   </span>
-                  <span className="font-medium group-hover:text-primary">{prevPost.title}</span>
+                  <span className="line-clamp-2 font-medium transition-colors group-hover:text-primary">{prevPost.title}</span>
                 </Link>
               ) : (
                 <div />
@@ -200,13 +200,13 @@ const BlogPost = () => {
               {nextPost && (
                 <Link
                   to={`/blog/${nextPost.slug}`}
-                  className="group flex flex-col gap-1 rounded-lg border border-border p-4 text-right no-underline text-foreground transition-colors hover:border-primary sm:col-start-2"
+                  className="group flex flex-col gap-1 rounded-2xl border border-border p-4 text-right no-underline text-foreground transition-colors hover:border-primary sm:col-start-2"
                 >
                   <span className="flex items-center justify-end gap-1 text-sm text-muted-foreground">
                     Next
                     <ChevronRight className="h-3 w-3" />
                   </span>
-                  <span className="font-medium group-hover:text-primary">{nextPost.title}</span>
+                  <span className="line-clamp-2 font-medium transition-colors group-hover:text-primary">{nextPost.title}</span>
                 </Link>
               )}
             </div>

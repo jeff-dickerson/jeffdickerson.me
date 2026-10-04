@@ -14,8 +14,8 @@ import { readFileSync } from "node:fs";
 
 const VALID_STATUS = new Set(["Delivered", "Modeled", "Projected", "In production"]);
 
-const REQUIRED_FIELDS = ["slug", "title", "heroTitle", "heroSubtitle", "cardOutcome", "date", "industry", "engagement", "tags", "image"];
-const OPTIONAL_FIELDS = ["client", "impact", "challenge", "approach", "architecture", "technicalHighlights", "delivered", "capabilities", "stack", "externalUrl"];
+const REQUIRED_FIELDS = ["slug", "title", "heroTitle", "heroSubtitle", "cardOutcome", "industry", "engagement", "tags", "image"];
+const OPTIONAL_FIELDS = ["date", "cover", "meta", "sections", "client", "impact", "challenge", "approach", "architecture", "technicalHighlights", "delivered", "capabilities", "stack", "externalUrl"];
 
 const errors = [];
 const err = (msg) => errors.push(msg);

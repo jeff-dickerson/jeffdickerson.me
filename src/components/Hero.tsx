@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
   return (
@@ -27,21 +28,15 @@ export const Hero = () => {
             className="flex flex-wrap items-center gap-4 animate-fade-up"
             style={{ animationDelay: "0.3s" }}
           >
-            <a
-              href="https://cal.com/jeffdickerson/15min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium no-underline hover:no-underline hover:bg-primary/90 transition-colors"
-            >
-              Book a call
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
-            <Link
-              to="/case-studies"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border text-foreground font-medium no-underline hover:no-underline hover:border-foreground transition-colors"
-            >
-              See case studies
-            </Link>
+            <Button asChild size="lg">
+              <a href="https://cal.com/jeffdickerson/15min" target="_blank" rel="noopener noreferrer">
+                Book a call
+                <ArrowUpRight />
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link to="/case-studies">See case studies</Link>
+            </Button>
           </div>
         </div>
       </div>

@@ -80,7 +80,9 @@ export const NewsletterForm = () => {
   return (
     <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
       <div className="mx-auto max-w-xl text-center">
-        <Mail className="mx-auto mb-3 h-6 w-6 text-primary" aria-hidden="true" />
+        <span className="mx-auto mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-muted">
+          <Mail className="h-5 w-5 text-foreground" aria-hidden="true" />
+        </span>
         <h2 className="text-2xl font-bold text-foreground">Subscribe to The G Factor</h2>
         <p className="mt-2 text-muted-foreground">
           Humans learning AI in the digital economy — new essays from Jeff Dickerson,

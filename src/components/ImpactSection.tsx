@@ -11,7 +11,7 @@ export const ImpactSection = () => {
       title: "Discovery",
       description:
         "Goals & requirements. We pin down the goal, the constraints, and the capability you already have — that defines the strategy, not the other way around.",
-      bgColor: "bg-card border border-border hover:border-primary hover:shadow-md",
+      bgColor: "bg-card border border-border",
       chipColor: "bg-primary/10 text-primary",
     },
     {
@@ -19,7 +19,7 @@ export const ImpactSection = () => {
       title: "Design",
       description:
         "Infrastructure, processes & data. We map the SOPs and put your data to work — agents where they earn their place, plain automation where that's the honest answer.",
-      bgColor: "bg-card border border-border hover:border-primary hover:shadow-md",
+      bgColor: "bg-card border border-border",
       chipColor: "bg-primary/10 text-primary",
     },
     {
@@ -27,20 +27,18 @@ export const ImpactSection = () => {
       title: "Enablement",
       description:
         "Project enablement. We operationalize, test against real conditions — not a sanitized demo — and put the solution into production.",
-      bgColor: "bg-card border border-border hover:border-primary hover:shadow-md",
+      bgColor: "bg-card border border-border",
       chipColor: "bg-primary/10 text-primary",
     },
     {
-      // Deliberately fixed accent — this is the highlighted "done" step and
-      // should stay a blue-filled card in both themes, not flip to the
-      // token-driven card surface like steps 1-3 (bg-primary would render
-      // as a near-white block in dark mode).
+      // Deliberate accent — the highlighted "done" step stays a filled card
+      // in both themes instead of the card surface steps 1-3 use.
       number: "4",
       title: "Handoff",
       description:
         "You walk away with a working AI system your team owns — documented, tested, and runnable without me. And your people are more AI-native than when we started.",
-      bgColor: "bg-blue-600 dark:bg-blue-500 border border-blue-600 dark:border-blue-500 hover:bg-blue-700 hover:border-blue-700",
-      chipColor: "bg-white/20 text-white",
+      bgColor: "bg-primary border border-primary",
+      chipColor: "bg-primary-foreground/20 text-primary-foreground",
     },
   ];
 
@@ -72,23 +70,24 @@ export const ImpactSection = () => {
   ];
 
   return (
-    <section className="py-12 md:py-20 bg-muted">
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-heading font-normal mb-8 md:mb-16 text-center animate-fade-up text-foreground">
+    <section className="py-20">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-14 text-center animate-fade-up text-foreground">
           Where my work has the most impact.
         </h2>
 
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-12 gap-6 md:gap-12 mb-8 md:mb-16">
             <div
-              className="md:col-span-4 flex flex-col gap-4 md:gap-6 animate-fade-up"
+              className="md:col-span-4 flex flex-row flex-wrap md:flex-col gap-2 animate-fade-up"
               style={{ animationDelay: "0.2s" }}
             >
               {segments.map((seg) => (
                 <button
                   key={seg.key}
                   onClick={() => setActiveSection(seg.key)}
-                  className={`text-left text-3xl leading-tight font-heading font-semibold transition-all duration-200 px-4 py-2 rounded-lg ${
+                  aria-pressed={activeSection === seg.key}
+                  className={`text-left text-lg md:text-xl leading-tight font-heading font-semibold transition-colors duration-200 px-4 py-2 rounded-lg ${
                     activeSection === seg.key
                       ? "text-primary bg-primary/10 border border-primary/30"
                       : "text-muted-foreground hover:text-primary hover:bg-primary/5 border border-transparent hover:border-primary/20"
@@ -113,22 +112,22 @@ export const ImpactSection = () => {
           {steps.map((step, index) => (
             <div
               key={step.number}
-              className={`${step.bgColor} p-6 rounded-xl shadow-sm animate-fade-up transition-all duration-300 cursor-pointer`}
+              className={`${step.bgColor} p-6 rounded-2xl animate-fade-up`}
               style={{ animationDelay: `${0.3 + index * 0.1}s` }}
             >
               <div className="mb-4">
-                <span className={`inline-block px-4 py-1 rounded-full text-sm font-medium ${step.chipColor}`}>
+                <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${step.chipColor}`}>
                   {step.number === "4" ? "Done" : `Step ${step.number}`}
                 </span>
               </div>
               <h3
-                className={`text-2xl font-bold mb-2 ${
-                  step.number === "4" ? "text-white" : "text-foreground"
+                className={`text-xl font-bold mb-2 ${
+                  step.number === "4" ? "text-primary-foreground" : "text-foreground"
                 }`}
               >
                 {step.title}
               </h3>
-              <p className={`text-sm ${step.number === "4" ? "text-white/80" : "text-muted-foreground"}`}>
+              <p className={`text-sm ${step.number === "4" ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
                 {step.description}
               </p>
             </div>

@@ -41,14 +41,20 @@ const Blog = () => {
   }, [debouncedSearch]);
 
   const availableTags = useMemo<TagFilterOption[]>(() => {
-    const bySlug = new Map<string, string>();
+    const bySlug = new Map<string, { label: string; count: number }>();
     for (const post of posts) {
       for (const tag of post.tags) {
         const slug = tagSlug(tag);
-        if (slug && !bySlug.has(slug)) bySlug.set(slug, tag);
+        if (!slug) continue;
+        const entry = bySlug.get(slug);
+        if (entry) entry.count += 1;
+        else bySlug.set(slug, { label: tag, count: 1 });
       }
     }
-    return Array.from(bySlug.entries()).map(([slug, label]) => ({ slug, label }));
+    // Most-used first — TagFilter shows the top few and tucks the rest away.
+    return Array.from(bySlug.entries())
+      .sort(([, a], [, b]) => b.count - a.count)
+      .map(([slug, { label }]) => ({ slug, label }));
   }, [posts]);
 
   const isFiltering = selectedTag !== null || debouncedSearch.trim() !== "";
@@ -138,6 +144,19 @@ const Blog = () => {
                 isFiltering
                   ? "Try a different search term or clear the filters."
                   : "Check back soon — new articles are on the way."
+              }
+              action={
+                isFiltering ? (
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      setSearchValue("");
+                      setSelectedTag(null);
+                    }}
+                  >
+                    Clear filters
+                  </Button>
+                ) : undefined
               }
             />
           ) : (

@@ -34,7 +34,7 @@ export const PostCard = ({ post }: PostCardProps) => {
         </AspectRatio>
         <CardContent className="flex flex-1 flex-col gap-3 p-5">
           <PostMeta post={post} />
-          <h3 className="text-xl font-bold leading-snug transition-colors group-hover:text-primary">
+          <h3 className="line-clamp-3 text-xl font-bold leading-snug transition-colors group-hover:text-primary">
             {post.title}
           </h3>
           <p className="line-clamp-3 text-sm text-muted-foreground">{post.excerpt}</p>

@@ -41,9 +41,9 @@ const features = [
 
 export const Features = () => {
   return (
-    <section id="services" className="py-20 bg-muted">
+    <section id="services" className="py-20">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-4 animate-fade-up text-foreground">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 animate-fade-up text-foreground">
           Where I come in.
         </h2>
         <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12 animate-fade-up" style={{ animationDelay: "0.1s" }}>
@@ -57,7 +57,9 @@ export const Features = () => {
               className="flex items-start space-x-4 animate-fade-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <feature.icon className="w-7 h-7 text-foreground flex-shrink-0 mt-1" />
+              <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-muted">
+                <feature.icon className="h-5 w-5 text-foreground" />
+              </span>
               <div>
                 <h3 className="text-lg font-semibold mb-2 text-foreground">{feature.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>

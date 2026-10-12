@@ -11,20 +11,52 @@ export interface TechHighlight {
   description: string;
 }
 
+export interface MetaItem {
+  label: string;
+  value: string;
+  href?: string;
+}
+
+// Inline diagrams drawn as theme-aware React SVG (see CaseFigures.tsx).
+export type FigureKey = "preflight-pipeline" | "preflight-layers" | "healthcare-agents";
+
+export type SectionBlock =
+  | { type: "text"; text: string }
+  | { type: "list"; items: string[] }
+  | { type: "quote"; text: string; cite?: string }
+  | { type: "table"; columns: string[]; rows: string[][] }
+  | { type: "figure"; figure: FigureKey; caption?: string }
+  | { type: "image"; src: string; alt: string; caption?: string }
+  | { type: "embed"; src: string; title: string; caption?: string }
+  | { type: "chips"; items: string[] }
+  | { type: "link"; label: string; href: string };
+
+// Field-notes layout: each section carries a margin label naming what it
+// evidences (real problem, full stack, production, outcome). Text and list
+// items support the `**bold**` convention.
+export interface CaseSection {
+  label: string;
+  note?: string;
+  title?: string;
+  blocks: SectionBlock[];
+}
+
 export interface CaseStudy {
   slug: string;
   title: string;
   heroTitle: string;
   heroSubtitle: string;
   cardOutcome: string;
-  date: string;
+  date?: string;
   client?: string;
   industry: string;
   engagement: string;
   tags: string[];
   image: string;
-  cover?: "documents" | "markets" | "contracts" | "crypto";
+  cover?: "documents" | "markets" | "contracts" | "crypto" | "pipeline" | "triage";
+  meta?: MetaItem[];
   impact?: Metric[];
+  sections?: CaseSection[];
   challenge?: string[];
   approach?: string[];
   architecture?: {
@@ -42,100 +74,433 @@ const PLACEHOLDER_IMAGE = "/lovable-uploads/d1e4ceee-3e2d-4e8c-8af3-6d2750e146e0
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "lsc-ecm",
-    title: "Lone Star College ECM",
-    heroTitle: "Replacing an ECM across 23 campuses, without 18 months of sequential work",
+    slug: "preflight",
+    title: "Preflight",
+    heroTitle: "Preflight",
     heroSubtitle:
-      "An AI workflow implementation framework — with an AWS SageMaker pipeline extracting from a live PeopleSoft ERP — that turned a sequential 26-week ECM deployment into a 15-week parallel delivery across five regulated departments.",
+      "Discovery notes go in. A traceable architecture and a proposal come out, and a person approves before anything is sent. The model proposes, code checks, people decide.",
     cardOutcome:
-      "Cut a 26-week ECM migration to 15 — a 42% compression — with an AI workflow framework that parallelized the serial work, backed by a SageMaker pipeline against a live PeopleSoft ERP.",
+      "Discovery notes go in; a traceable architecture and a proposal come out, and a person approves before anything is sent. The model proposes, code checks, people decide.",
+    industry: "Pre-sales automation",
+    engagement: "Self-initiated build",
+    tags: ["Sole builder", "Deterministic RAG", "Human-in-the-loop"],
+    image: PLACEHOLDER_IMAGE,
+    cover: "pipeline",
+    meta: [
+      { label: "Role", value: "Sole designer and builder" },
+      { label: "Scope", value: "Specification, prototype, production build" },
+      { label: "Stack", value: "Pydantic · PostgreSQL · Redis · Langfuse · SQL · LLM" },
+      { label: "Live", value: "preflight.space-z.ai", href: "https://preflight.space-z.ai" },
+    ],
+    impact: [
+      {
+        value: "6",
+        label: "Pipeline stages, from discovery to brand — Discover and Blueprint are the two built out in the prototype",
+        status: "In production",
+      },
+      {
+        value: "≥90%",
+        label: "Retrieval quality threshold the evals gate on",
+        status: "In production",
+      },
+      {
+        value: "≥75%",
+        label: "Answer quality threshold across document synthesis",
+        status: "In production",
+      },
+      {
+        value: "0",
+        label: "Lines of diagram syntax written by the model",
+        status: "In production",
+      },
+    ],
+    sections: [
+      {
+        label: "Real problem",
+        note: "Discover the real problem",
+        title: "Two job descriptions described one workflow",
+        blocks: [
+          {
+            type: "text",
+            text: "I started by reading job descriptions the way a product team reads customer interviews. Two senior pre-sales roles kept asking for the same thing in different words. One wanted someone to \"leverage pre-sales automation AI tools to streamline technical proposals.\" The other wanted someone to \"translate business problems into technology solutions\" and carry them through the deal.",
+          },
+          {
+            type: "text",
+            text: "The technology lists differed. The job did not. A discovery call becomes requirements. Requirements become an architecture. The architecture becomes effort estimates, a staffing model, a deck and an SOW, and the whole package is handed to delivery. Every hand-off is a place where context can be lost.",
+          },
+          {
+            type: "text",
+            text: "So I did not build a chatbot for architects. I treated the pipeline as the product: its stages, its hand-offs, and a record of why each decision was made.",
+          },
+        ],
+      },
+      {
+        label: "Spec first",
+        note: "Build across the entire stack",
+        title: "I asked for a specification, not a demo",
+        blocks: [
+          {
+            type: "text",
+            text: "I gave an AI assistant my core competencies and the job descriptions and asked which artifacts would show them. It suggested an agent demo. I asked for something else:",
+          },
+          {
+            type: "quote",
+            text: "Rather than you build it, create a specification, a detailed structured communication artifact of this build that clearly and unambiguously captures the intent, values and goals in an organized way. This should allow me to articulate the workflow of the agent and anything else regarding this endeavor like extensibility, components, apps, documentation, blogs, etc. Then create a very, very detailed checklist of one story point tasks that an AI coding agent can complete.",
+            cite: "My prompt, early September",
+          },
+          {
+            type: "text",
+            text: "A demo hides its decisions inside code. A specification puts intent, values, workflow, extension points and components on paper, where they can be argued with before anything is built. The checklist of one-point tasks then let a coding agent build in small, checkable steps, with storybook states defined for every component.",
+          },
+        ],
+      },
+      {
+        label: "Prototype",
+        note: "Discover the real problem",
+        title: "A six-stage prototype with three rules",
+        blocks: [
+          {
+            type: "text",
+            text: "The first build was a working prototype of the workflow. Notes from a call, a transcript or an RFP excerpt go into **Discover**, which extracts requirements, stakeholders and systems, and client dependencies, then interrogates the notes for gaps. **Blueprint** turns that into an integration architecture.",
+          },
+          {
+            type: "figure",
+            figure: "preflight-pipeline",
+            caption:
+              "The six stages in the prototype. Discover and Blueprint are built out. The short labels under each are the sub-steps the prototype shows.",
+          },
+          {
+            type: "text",
+            text: "Three rules sit on the Blueprint stage and they are printed on the screen itself:",
+          },
+          {
+            type: "list",
+            items: [
+              "**Every selection traces back to a requirement.** Nothing appears in an architecture without a reason a reader can follow.",
+              "**Every unresolved assumption becomes a question.** Gaps are surfaced to the person, not smoothed over.",
+              "**The model never writes diagram syntax.** Diagrams are rendered and validated by code from a real pattern catalog.",
+            ],
+          },
+          {
+            type: "embed",
+            src: "/demos/preflight.html",
+            title: "Preflight prototype — recorded sample run",
+            caption:
+              "The prototype itself, on a recorded sample run: model responses were captured once and are replayed, while the checks and diagram rendering run live. Run Discover, then continue to Blueprint. Its footer says plainly that this is a starter catalog and not the production system.",
+          },
+        ],
+      },
+      {
+        label: "Full stack",
+        note: "Build across the entire stack",
+        title: "The model proposes, deterministic code decides",
+        blocks: [
+          {
+            type: "text",
+            text: "The production build moved the same contract into a full stack. The design rule is that the model's job stays small and its output stays checkable. Anything that can be computed, validated, retrieved or rendered is handled by code. A person approves the steps where a mistake would be expensive.",
+          },
+          {
+            type: "figure",
+            figure: "preflight-layers",
+            caption:
+              "The contract between layers. The model's output is a proposal in a typed structure. Code accepts or rejects it. A person approves high-stakes steps. Tracing runs alongside all three.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Deterministic RAG.** Retrieval built for repeatable results, with hybrid search across the document set.",
+              "**Orchestrator architecture.** One coordinating layer sequences the stages and owns the approval gates.",
+              "**Approval-based automation.** The discovery-to-proposal process runs automatically up to the points where a person must sign off.",
+              "**Typed contracts and storage.** Pydantic models define what each stage may produce. PostgreSQL holds the records.",
+            ],
+          },
+          {
+            type: "chips",
+            items: ["Pydantic", "PostgreSQL", "Redis", "Langfuse", "SQL", "Hybrid search", "Orchestrator", "LLM"],
+          },
+        ],
+      },
+      {
+        label: "Production",
+        note: "Understand production AI requirements",
+        title: "Evaluations, hard cost limits, full traceability",
+        blocks: [
+          {
+            type: "text",
+            text: "Pre-sales answers are read by buyers and they commit money, so the system is built to be tested and to be audited.",
+          },
+          {
+            type: "table",
+            columns: ["What is evaluated", "Threshold", "Why it matters in pre-sales"],
+            rows: [
+              ["Retrieval quality", "≥ 90%", "The right source has to be found before anything is written from it."],
+              ["Answers across document synthesis", "≥ 75%", "Proposals combine several documents into one answer."],
+              ["Conflicting sources", "tested separately", "Two documents will disagree. The system must say so."],
+              ["Stale information", "tested separately", "An old price or scope statement should not reach a new proposal."],
+            ],
+          },
+          {
+            type: "list",
+            items: [
+              "**Hard cost constraints.** Rate limits and a ceiling on token output are enforced in the system, so cost per run has a known upper bound.",
+              "**Full traceability.** Langfuse traces each step, so any answer can be followed back to the sources and calls that produced it.",
+              "**Human-in-the-loop by design.** Approval gates sit on high-stakes workflow steps.",
+            ],
+          },
+        ],
+      },
+      {
+        label: "Outcome",
+        note: "Connect systems to business outcomes",
+        title: "What it is built to move",
+        blocks: [
+          {
+            type: "text",
+            text: "Preflight is a self-initiated build, so I report what it is engineered to change and not customer results. The business framing comes from the sales-enablement specification that sits beside it: a shorter cycle from inbound lead to engaged buyer, which lowers acquisition cost and improves return.",
+          },
+          {
+            type: "table",
+            columns: ["System measure", "Business measure it serves"],
+            rows: [
+              ["Retrieval and synthesis thresholds", "Fewer wrong or unsupported statements reaching a buyer"],
+              ["Traced, approved steps", "Faster review by the people accountable for the proposal"],
+              ["Token and rate caps", "Predictable cost per proposal"],
+              ["Discovery-to-blueprint automation", "Shorter time from first call to first proposal"],
+            ],
+          },
+        ],
+      },
+      {
+        label: "Lessons",
+        note: "What I would carry to the next build",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Start from the job, not the model.** Reading the roles as customer interviews found the workflow before any code existed.",
+              "**Write the spec first.** It cost one prompt and it removed most of the ambiguity a coding agent would otherwise have guessed at.",
+              "**Keep the model's role small.** The fewer things the model is trusted to do unchecked, the fewer things there are to evaluate.",
+              "**Treat approval as a feature.** In high-stakes workflows the gate is part of the product and buyers see it that way.",
+              "**Label prototypes as prototypes.** The demo says what it is. Trust in the production system depends on that.",
+            ],
+          },
+          { type: "link", label: "Open Preflight", href: "https://preflight.space-z.ai" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "community-college",
+    title: "Community College Content Platform",
+    heroTitle: "Community college content platform",
+    heroSubtitle:
+      "A 26-week content management replacement ran in 15 weeks by extending the existing process engine instead of ripping it out, with governance that put a person's signature on every migration phase.",
+    cardOutcome:
+      "A 26-week content management replacement ran in 15 — by extending the existing process engine instead of ripping it out, with a person's signature on every migration phase.",
     date: "2025",
-    client: "Lone Star College System · 23 campuses · 80,000 students · 7,300 employees",
-    industry: "Higher Education / Public Sector",
-    engagement: "AI workflow framework + specs-as-code",
+    client: "A large multi-campus community college system, 23 locations",
+    industry: "Higher Education",
+    engagement: "AI Architecture and LLM Advisor",
     tags: ["AI Architect", "Enterprise ECM", "Regulated"],
     image: PLACEHOLDER_IMAGE,
     cover: "documents",
+    meta: [
+      { label: "Client", value: "A large multi-campus community college system, 23 locations" },
+      { label: "Role", value: "AI Architecture and LLM Advisor, February to May 2025, as part of a delivery team" },
+      {
+        label: "Scope",
+        value:
+          "Five departments: student records, financial aid, veterans affairs, international programs, human resources",
+      },
+    ],
     impact: [
+      { value: "42%", label: "Shorter timeline, 26 weeks to 15", status: "Delivered" },
+      { value: "5", label: "Departments delivered in parallel", status: "Delivered" },
       {
-        value: "42%",
-        label: "Timeline compression — a 26-week ECM deployment delivered in 15",
+        value: "11",
+        label: "Evaluation and governance stages aligned to ISO/IEC 42001:2023",
         status: "Delivered",
       },
+      { value: "0.85", label: "Confidence threshold for AI classification", status: "Delivered" },
+    ],
+    sections: [
       {
-        value: "10 workstreams",
-        label: "Run in parallel — peak 9 concurrent — instead of one after another",
-        status: "Delivered",
+        label: "Real problem",
+        note: "Discover the real problem",
+        title: "The system to replace was holding up daily operations",
+        blocks: [
+          {
+            type: "text",
+            text: "The ask was a new enterprise content management platform, because the old one had reached end of useful life. The system touched enrollment, financial aid processing, payroll, compliance auditing and records retention, so the real requirement was a replacement that never interrupted those processes.",
+          },
+          {
+            type: "text",
+            text: "That changed the design. Instead of replacing the process engine, the AI layer extends PeopleSoft's: it manages the document lifecycle that accompanies each process. Departments also needed to change their own workflows without waiting on a vendor, so the workflow designer had to be usable by administrators.",
+          },
+        ],
       },
       {
-        value: "11 / 11",
-        label: "Composable spec modules — PeopleSoft integration, extraction, SageMaker pipeline",
-        status: "Delivered",
+        label: "Full stack",
+        note: "Build across the entire stack",
+        title: "Event-driven, so departments could move in parallel",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Workflow designer.** A visual, no-code and low-code tool for departmental administrators to create and change workflows.",
+              "**Automation agent.** A backend agent with triggers, notifications and human-in-the-loop validation for each department workflow.",
+              "**Integration.** PeopleSoft Integration Broker and attachment-table extraction, exposed through OpenAPI 3.0 and secured with OAuth 2.0.",
+              "**Platform.** Python and LangGraph on Kubernetes, with Kafka carrying events between services.",
+            ],
+          },
+          {
+            type: "chips",
+            items: [
+              "Python",
+              "LangGraph",
+              "PeopleSoft Integration Broker",
+              "Kubernetes",
+              "OAuth 2.0",
+              "OpenAPI 3.0",
+              "Kafka",
+            ],
+          },
+          {
+            type: "text",
+            text: "The event-driven design is what allowed five departments to be delivered in parallel, and scoping ran across schema, process, data, taxonomy, devices, curriculum architecture and regulation.",
+          },
+        ],
       },
       {
-        value: "5 frameworks",
-        label: "FERPA · HIPAA · TX Data Privacy · §508 · TX-RAMP",
-        status: "Delivered",
+        label: "Production",
+        note: "Understand production AI requirements",
+        title: "An 11-stage evaluation and governance process",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Standards.** Evaluation and governance mapped to ISO/IEC 42001:2023 requirements.",
+              "**Classification.** A 4-tier AI classification taxonomy enforced with NLP and PII detection at a 0.85 confidence threshold.",
+              "**Regression testing.** Changes are checked against known behavior before release.",
+              "**Identity.** Protocol-agnostic identity, so departments are not tied to one sign-in method.",
+              "**Human sign-off.** A phase-gated migration with mandatory human approval for each department.",
+            ],
+          },
+        ],
+      },
+      {
+        label: "Outcome",
+        note: "Connect systems to business outcomes",
+        title: "Shorter timeline, no disruption, departments in control",
+        blocks: [
+          {
+            type: "table",
+            columns: ["System decision", "Business result"],
+            rows: [
+              ["Event-driven parallel delivery", "26 → 15 weeks (42%)"],
+              ["Extend the process engine", "Operations continued through the transition across 23 locations"],
+              ["No-code workflow designer", "Departments change workflows without vendor intervention"],
+              ["Phase gates with human sign-off", "Every department approved its own migration"],
+            ],
+          },
+        ],
       },
     ],
-    challenge: [
-      "Lone Star College System was replacing its enterprise content management platform. The surface problem was a vendor swap. The real problem: documents lived inside a live PeopleSoft ERP across five regulated departments — Student Records, Financial Aid, HR, Admissions, and Compliance — with 95 scanners spread across 23 campuses and no existing data-classification policy.",
-      "The default sequential playbook put the project at 6–18 months. The institution had 12–18 weeks.",
-      "Anything we designed had to run against the real PeopleSoft attachment framework (not a sanitized model of it), satisfy FERPA, HIPAA, TX Data Privacy Act, §508, and TX-RAMP without the usual 'we'll do compliance last' retrofit, and stay vendor-independent so the client kept leverage through vendor selection.",
+  },
+  {
+    slug: "healthcare-intake",
+    title: "Healthcare Intake and Triage",
+    heroTitle: "Healthcare intake and triage",
+    heroSubtitle:
+      "A four-agent voice workflow cut handling time per intake from 30 minutes to 5, and was built so that a person takes over whenever the system is unsure.",
+    cardOutcome:
+      "A four-agent voice workflow cut handling time per intake from 30 minutes to 5 — built so a person takes over whenever the system is unsure.",
+    client: "A healthcare foundation",
+    industry: "Healthcare",
+    engagement: "Architect and builder",
+    tags: ["AI Architect", "Multi-agent voice", "HIPAA"],
+    image: PLACEHOLDER_IMAGE,
+    cover: "triage",
+    meta: [
+      { label: "Client", value: "A healthcare foundation" },
+      { label: "Role", value: "Architect and builder" },
+      { label: "Stack", value: "LangGraph · llama.cpp with Qwen 3 · LangSmith · FastAPI · private cloud" },
     ],
-    approach: [
-      "**Treat the spec as the product.** Instead of a slide deck and a PM handoff, I wrote the solution as executable specification — 11 composable modules, 36 given/when/then tests, and an explicit risk register. Anyone evaluating a vendor could run the spec as an acceptance contract, and it became the alignment artifact between stakeholders, engineering, and implementation.",
-      "**Parallelize the serial work with an AI workflow framework.** A standard migration chains discovery, extraction, classification, compliance validation, and cutover sequentially because each stage depends on the last. I built and implemented an AI workflow framework that parallelized those bottlenecks: dependency-aware orchestration across ten workstreams, an AWS SageMaker pipeline handling attachment-table extraction and classification against the live PeopleSoft ERP, and phased, checksum-verified data migration. The critical path collapsed from 26 weeks to 15.",
+    impact: [
+      { value: "83%", label: "Less handling time, 30 minutes to 5", status: "Delivered" },
+      { value: "$250 → $42", label: "Daily labor cost on the workflow", status: "Delivered" },
+      { value: "80+ hrs", label: "Of operational capacity released", status: "Delivered" },
+      { value: "≥90%", label: "Reliability on human escalation rules", status: "Delivered" },
     ],
-    architecture: {
-      diagram: "/case-studies/lscs-architecture.svg",
-      caption:
-        "Five tiers — users, security perimeter, application services, data layer, and integrations — with the AI workflow framework parallelizing extraction, classification, and compliance across the migration.",
-    },
-    technicalHighlights: [
+    sections: [
       {
-        title: "AI workflow orchestration framework",
-        description:
-          "The framework schedules the ten migration workstreams by dependency rather than in sequence — running discovery, extraction, classification, and compliance validation in parallel wherever the data allows. This dependency-aware orchestration is where the 26-to-15-week compression comes from.",
+        label: "Real problem",
+        note: "Discover the real problem",
+        title: "The discovery that shaped the build",
+        blocks: [
+          {
+            type: "text",
+            text: "The measurable unit of work was a single intake-to-triage interaction. It took 30 minutes of staff time and accounted for $250 a day in labor on the workflow. Automating the conversation was the obvious request. The design question was which parts of it a person must keep.",
+          },
+        ],
       },
       {
-        title: "PeopleSoft attachment-table extraction",
-        description:
-          "An extraction pipeline queries PS_ATTACHMENTS and the live PeopleSoft attachment framework to map actual data volumes and relationships — not the vendor-documented ones. Phased and checksum-verified (HR pilot → VA + IP → SR + FA), with rollback at each stage. Zero-knowledge-gap migration as a first-class guarantee.",
+        label: "Full stack",
+        note: "Build across the entire stack",
+        title: "Four agents, one supervisor",
+        blocks: [
+          {
+            type: "figure",
+            figure: "healthcare-agents",
+            caption:
+              "Intake collects the information by voice. Verification checks it. Output produces the structured record. The Supervisor routes between them and decides when to escalate.",
+          },
+          {
+            type: "list",
+            items: [
+              "**Orchestration.** A four-agent LangGraph graph with voice.",
+              "**Model.** Open-weight Qwen 3 served with llama.cpp, deployed to a private cloud.",
+              "**Service.** A FastAPI application built to production quality.",
+            ],
+          },
+          {
+            type: "chips",
+            items: ["LangGraph", "llama.cpp", "Qwen 3", "LangSmith", "FastAPI", "Voice", "Private cloud"],
+          },
+        ],
       },
       {
-        title: "SageMaker classification pipeline",
-        description:
-          "An AWS SageMaker pipeline applies a 4-tier taxonomy mapped to FERPA / HIPAA categories — classifying documents at ingestion and re-classifying retroactively across the migrated corpus. Drift detection re-tags anything that moves out of policy after the fact.",
+        label: "Production",
+        note: "Understand production AI requirements",
+        title: "Escalation rules, observability and HIPAA safeguards",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "**Human escalation.** Explicit rules hand a case to a person, and they hold at 90% reliability or better.",
+              "**Observability.** LangSmith traces each agent step.",
+              "**Privacy.** HIPAA safeguards for healthcare workflows, with the system deployed to a private cloud.",
+              "**Regression testing.** A playground for replaying cases, so changes can scale across clinical operations without breaking what works.",
+            ],
+          },
+        ],
       },
       {
-        title: "36 executable policy tests",
-        description:
-          "Given/when/then specs covering document ingestion, cross-department isolation, and bulk reclassification. Run as unit tests in CI; vendors and the implementation can be graded against them directly.",
+        label: "Outcome",
+        note: "Connect systems to business outcomes",
+        title: "From minutes per case to hours per day",
+        blocks: [
+          {
+            type: "table",
+            columns: ["System measure", "Before", "After"],
+            rows: [
+              ["Handling time per intake", "30 min", "5 min (−83%)"],
+              ["Daily labor cost", "$250", "$42"],
+              ["Operational capacity", "Consumed by intake", "80+ hours released"],
+            ],
+          },
+        ],
       },
-    ],
-    delivered: [
-      "11-module executable specification, composable and versioned",
-      "36 given/when/then acceptance tests, run in CI",
-      "AI workflow orchestration framework — dependency-aware parallel scheduling across ten workstreams",
-      "AWS SageMaker extraction + classification pipeline against the live PeopleSoft ERP",
-      "Phased, checksum-verified data migration with per-stage rollback",
-      "Vendor-independent SSO / identity architecture (SAML 2.0 / OIDC / CAS)",
-      "4-tier FERPA / HIPAA data classification taxonomy",
-    ],
-    capabilities: [
-      "AI workflow implementation",
-      "ML pipelines (AWS SageMaker)",
-      "Enterprise architecture",
-      "Regulatory compliance (FERPA / HIPAA)",
-      "ERP integration",
-    ],
-    stack: [
-      "AWS SageMaker",
-      "PeopleSoft ERP",
-      "Markdown / YAML (specs-as-code)",
-      "SAML 2.0 / OIDC / CAS",
-      "AI classification pipeline",
     ],
   },
   {

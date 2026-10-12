@@ -14,7 +14,7 @@ export const BlogHero = ({ post }: BlogHeroProps) => {
   return (
     <Link
       to={`/blog/${post.slug}`}
-      className="group mb-12 grid grid-cols-1 overflow-hidden rounded-2xl border border-border bg-card no-underline text-foreground md:grid-cols-2"
+      className="group mb-12 grid grid-cols-1 overflow-hidden rounded-2xl border border-border bg-card no-underline text-foreground transition-colors hover:border-primary md:grid-cols-2"
     >
       <AspectRatio ratio={16 / 9}>
         <img
@@ -33,10 +33,10 @@ export const BlogHero = ({ post }: BlogHeroProps) => {
         <Badge variant="secondary" className="w-fit">
           Latest
         </Badge>
-        <h2 className="text-3xl font-bold leading-tight transition-colors group-hover:text-primary md:text-4xl">
+        <h2 className="line-clamp-4 text-3xl font-bold leading-tight transition-colors group-hover:text-primary md:text-4xl">
           {post.title}
         </h2>
-        <p className="text-muted-foreground">{post.excerpt}</p>
+        <p className="line-clamp-3 text-muted-foreground">{post.excerpt}</p>
         <PostMeta post={post} />
       </div>
     </Link>
